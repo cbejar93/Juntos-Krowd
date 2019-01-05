@@ -106,10 +106,18 @@ public class KrowdTest {
 
 	@Test
 	public void testEarnTokens() {
+		EarnTokenService eartokser = new EarnTokenService();
+		userInfo uinfo = new userInfo("p@revature.com","pokeballssuck666");
+		User u = new User(25, "pikachu@revature.com","pokeballssuck666","Pikachu","Ketchum",6664202019,"false");
+		assertEquals(u.auth.isUserValid(uinfo));
 	}
 
 	@Test
 	public void testSpendTokens() {
+		SpendTokenService spetokser = new SpendTokenService();
+		userInfo uinfo = new userInfo("p@revature.com","pokeballssuck666");
+		User u = new User(25, "pikachu@revature.com","pokeballssuck666","Pikachu","Ketchum",6664202019,"false");
+		assertEquals(u.auth.isUserValid(uinfo));
 	}
 
 	@Test
@@ -134,42 +142,50 @@ public class KrowdTest {
 	@Test
 	public void testIncorrectUserEmail() {
 		userInfo uinfo = new userInfo("p@revature.com","pokeballssuck666");
-		User u = new User(25, "pikachu@revature.com","8f4V2La3Vd4X","Pikachu","Ketchum",6664202019,"false");
+		User u = new User(25, "pikachu@revature.com","pokeballssuck666","Pikachu","Ketchum",6664202019,"false");
 		assertFalse(u.equals(auth.isValidUser(uinfo)));
 	}
 	@Test
 	public void testIncorrectUserPassword() {
-		userInfo uinfo = new userInfo("hdurrell0@indigo.com","y");
-		User u = new User(25, "pikachu@revature.com","8f4V2La3Vd4X","Pikachu","Ketchum",6664202019,"false");
+		userInfo uinfo = new userInfo("pikachu@revature.com","y");
+		User u = new User(25, "pikachu@revature.com","pokeballssuck666","Pikachu","Ketchum",6664202019,"false");
 		assertFalse(u.equals(auth.isUserValid(uinfo)));
 	}
 	@Test
 	public void testNullUserInfo() {
 		userInfo uinfo = new userInfo(null,null);
-		User u = new User(25, "pikachu@revature.com","8f4V2La3Vd4X","Pikachu","Ketchum",6664202019,"false");
+		User u = new User(25, "pikachu@revature.com","pokeballssuck666","Pikachu","Ketchum",6664202019,"false");
 		assertFalse(u.equals(auth.isUserValid(uinfo)));
 	}
 	@Test
 	public void testVerifyRealUser() {
 		AuthenticationService auth = new AuthenticationService();
 		userInfo uinfo = new userInfo("p@revature.com","pokeballssuck666");
-		User u = new User(25, "pikachu@revature.com","8f4V2La3Vd4X","Pikachu","Ketchum",6664202019,"false");
+		User u = new User(25, "pikachu@revature.com","pokeballssuck666","Pikachu","Ketchum",6664202019,"false");
 		assertEquals(u.auth.isUserValid(uinfo));
 	}
 	@Test
 	public void testUserRegister() {
 		RegistrationService regis = new RegistrationService();
 		userInfo uinfo = new userInfo("pikachu@revature.com","pokeballssuck666");
-		User u = new User(25, "pikachu@revature.com","8f4V2La3Vd4X","Pikachu","Ketchum",6664202019,"false");
+		User u = new User(25, "pikachu@revature.com","pokeballssuck666","Pikachu","Ketchum",6664202019,"false");
 		assertEquals(u.auth.isUserValid(uinfo));
 	}
 
 	@Test
 	public void testUserLogout() {
+		LogoutService logoserv = new LogoutService();
+		userInfo uinfo = new userInfo("pikachu@revature.com","pokeballssuck666");
+		User u = new User(25, "pikachu@revature.com","pokeballssuck666","Pikachu","Ketchum",6664202019,"false");
+		assertEquals(u.auth.isUserValid(uinfo));
 	}
 
 	@Test
 	public void testUserLogin() {
+		LoginService logiserv = new LoginService();
+		userInfo uinfo = new userInfo("pikachu@revature.com","pokeballssuck666");
+		User u = new User(25, "pikachu@revature.com","pokeballssuck666","Pikachu","Ketchum",6664202019,"false");
+		assertEquals(u.auth.isUserValid(uinfo));
 	}
 
 	/*********************************************************************
@@ -177,14 +193,26 @@ public class KrowdTest {
 	 *********************************************************************/
 	@Test
 	public void testAdminDeleteComment() {
+		DeleteCommentService delcomser = new DeleteCommentService();
+		adminInfo ainfo = new adminInfo("charizard@revature.com","flamethrower69");
+		Admin a = new Admin(6, "charizard@revature.com,","flamethrower69","Charizard","Emberscale",6669991337,"false");
+		assertEquals(a.ath.isAdminValid(ainfo));
 	}
 
 	@Test
 	public void testAdminDeleteUser() {
+		DeleteUserService deluserser = new DeleteCommentService();
+		adminInfo ainfo = new adminInfo("charizard@revature.com","flamethrower69");
+		Admin a = new Admin(6, "charizard@revature.com,","flamethrower69","Charizard","Emberscale",6669991337,"false");
+		assertEquals(a.auth.isAdminValid(ainfo));
 	}
 
 	@Test
 	public void testAdminDeleteEvent() {
+		DeleteEventService deleveser = new DeleteCommentService();
+		adminInfo ainfo = new adminInfo("charizard@revature.com","flamethrower69");
+		Admin a = new Admin(6, "charizard@revature.com,","flamethrower69","Charizard","Emberscale",6669991337,"false");
+		assertEquals(a.auth.isAdminValid(ainfo));
 	}
 
 	/*********************************************************************
@@ -193,6 +221,10 @@ public class KrowdTest {
 
 	@Test
 	public void testHostCreateEvent() {
+		CreateEventService creeveser = new CreateEventService();
+		hostInfo hinfo = new hostInfo("squirtle@revature.com","squirtlesquad2019");
+		Host h = new Host(7, "squirtle@revature.com", "bubblebeam420","Squirtle","Aquaring",7776662020,"false");
+		assertEquals(h.auth.isHostValid(hinfo));
 	}
 
 	@Test
