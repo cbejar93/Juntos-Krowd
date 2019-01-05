@@ -229,26 +229,50 @@ public class KrowdTest {
 
 	@Test
 	public void testHostCustomizeEvent() {
+		CustomizeEventService cuseveser = new CustomizeEventService();
+		hostInfo hinfo = new hostInfo("squirtle@revature.com","squirtlesquad2019");
+		Host h = new Host(7, "squirtle@revature.com", "bubblebeam420","Squirtle","Aquaring",7776662020,"false");
+		assertEquals(h.auth.isHostValid(hinfo));
 	}
 
 	@Test
 	public void testHostDeleteEvent() {
+		DeleteEventService deleveser = new DeleteEventService();
+		hostInfo hinfo = new hostInfo("squirtle@revature.com","squirtlesquad2019");
+		Host h = new Host(7, "squirtle@revature.com", "bubblebeam420","Squirtle","Aquaring",7776662020,"false");
+		assertEquals(h.auth.isHostValid(hinfo));
 	}
 
 	@Test
 	public void testHostSendEventInvitation() {
+		SendEventInvitationService seneveinvser = new SendEventInvitationService();
+		hostInfo hinfo = new hostInfo("squirtle@revature.com","squirtlesquad2019");
+		Host h = new Host(7, "squirtle@revature.com", "bubblebeam420","Squirtle","Aquaring",7776662020,"false");
+		assertEquals(h.auth.isHostValid(hinfo));
 	}
 
 	@Test
 	public void testHostUploadImage() {
+		HostUploadImageService hosuplimaser = new HostUploadImageService();
+		hostInfo hinfo = new hostInfo("squirtle@revature.com","squirtlesquad2019");
+		Host h = new Host(7, "squirtle@revature.com", "bubblebeam420","Squirtle","Aquaring",7776662020,"false");
+		assertEquals(h.auth.isHostValid(hinfo));
 	}
 
 	@Test
-	public void testHostGoogleMapsToCreateEvent() {
+	public void testHostGmapsCreateEvent() {
+		HostGmapsCreateEventService hosgmacreeveser = new HostGmapsCreateEventService();
+		hostInfo hinfo = new hostInfo("squirtle@revature.com","squirtlesquad2019");
+		Host h = new Host(7, "squirtle@revature.com", "bubblebeam420","Squirtle","Aquaring",7776662020,"false");
+		assertEquals(h.auth.isHostValid(hinfo));
 	}
 
 	@Test
 	public void testEventCharts() {
+		EventChartsService evechaser = new EventChartsService();
+		hostInfo hinfo = new hostInfo("squirtle@revature.com","squirtlesquad2019");
+		Host h = new Host(7, "squirtle@revature.com", "bubblebeam420","Squirtle","Aquaring",7776662020,"false");
+		assertEquals(h.auth.isHostValid(hinfo));
 	}
 
 }
