@@ -1,13 +1,18 @@
 <div [hidden]="submitted">
   <h1>Create an Event</h1>
   <h6>Please fill out the information below to create an event.</h6>
+  <p>* denotes required field</p>
 </div>
+
 <!-- Card for creating event -->
 <div class="card box-shadow" [hidden]="submitted">
+ 
+  <!-- "#eventForm" creates a local variable for the form called eventForm-->
   <form (ngSubmit)="onEventCreated(eventForm)" #eventForm="ngForm">
-      <!-- input for the Name of the Event-->
+     
+    <!-- input for the Name of the Event-->
       <div class="form-group" id="nameField">
-        <label for="eventName">Name of Event</label>
+        <label for="eventName">Name of Event*</label>
         <input required
           type="text" 
           class="form-control" 
@@ -31,7 +36,7 @@
       <div class="form-group col-6">
 
         <!-- input for event category dropdown-->
-        <label for="eventCategory">Category</label>
+        <label for="eventCategory">Category*</label>
           <select required
           class="form-control" 
           id="eventCategory" 
@@ -47,7 +52,7 @@
         <br>
      
         <!-- input for number of people-->
-        <label for="eventPeople">Max Number of People</label>
+        <label for="eventPeople">Max Number of People*</label>
           <input required
           type="number" 
           class="form-control" 
@@ -69,7 +74,7 @@
         </div>
  
       <!-- input for event description-->
-      <label for="eventDescription">Description</label>
+      <label for="eventDescription">Description*</label>
         <textarea required 
           class="form-control" 
           name="eventDescription" 
@@ -81,6 +86,8 @@
           [(ngModel)]="eventDescription"
           #description="ngModel">
         </textarea>
+
+        <br [hidden]="description.valid || description.pristine">
 
         <!-- error message for event description-->
         <div [hidden]="description.valid || description.pristine"
@@ -98,7 +105,7 @@
       <!-- Calendar for picking the event date-->
       <div class="form-group col">
         <br>
-          <label for="eventDate">Event Date</label>
+          <label for="eventDate">Event Date*</label>
             <ngb-datepicker #d [(ngModel)]="eventDate" name="eventDate" required></ngb-datepicker>
      </div>
       
@@ -106,7 +113,7 @@
 
      <!-- input for the Location of the Event-->
      <div class="form-group">
-        <label for="eventName">Event Address</label>
+        <label for="eventName">Event Address*</label>
         <input required
           type="text" 
           class="form-control" 

@@ -20,6 +20,7 @@ export class EventCreatorComponent implements OnInit {
   onEventCreated(form: NgForm){
     //code for adding the new event to the database
     console.log('Event Successfully Created');
+    console.log(form);
     const value = form.value;
     console.log(form.value)
     const newEvent = new Event(null, value.eventName, 
