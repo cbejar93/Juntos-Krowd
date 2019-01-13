@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Event } from '../home/event.model';
 import { HttpClient } from '@angular/common/http';
 import { CloudinaryOptions, CloudinaryUploader } from 'ng2-cloudinary';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-event-creator',
@@ -17,6 +18,7 @@ export class EventCreatorComponent implements OnInit {
   ngOnInit() {
   }
 
+  constructor(http: HttpClient, private dataService: DataServiceService) { }
   onEventCreated(form: NgForm){
     //code for adding the new event to the database
     console.log('Event Successfully Created');
@@ -31,13 +33,14 @@ export class EventCreatorComponent implements OnInit {
     this.eventCreated.emit({eventName: this.newEventName});
     console.log(newEvent);
     this.submitted = true;
+    // this.dataService.createNewEvent(newEvent);
   }
 
 //code for image upload
   selectedFile: File = null;
   imageURL: string;
   picture: string = "http://saveabandonedbabies.org/wp-content/uploads/2015/08/default.png";
-  constructor(http: HttpClient) { }
+  
 
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'dhazivqjc', uploadPreset: 'zalhcbr6' })

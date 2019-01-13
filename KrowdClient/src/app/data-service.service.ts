@@ -39,4 +39,8 @@ export class DataServiceService {
         return throwError(error);
       }))
   }
+
+  // createNewEvent (Event: any) {
+  //   return this.httpClient.post("localhost:7001/Juntos-Krowd/users/all", Event);
+  // }
 }

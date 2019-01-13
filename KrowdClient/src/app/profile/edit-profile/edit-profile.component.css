@@ -21,3 +21,7 @@
     margin: 20px 20px 20px 40px;
     position: center;
 }
+
+#pictureButtons {
+    margin: 0px 10px auto;
+}
