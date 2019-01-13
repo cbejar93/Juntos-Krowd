@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Event } from './home/event.model'
+import { Event } from './home/event.model';
 import { UserModelService } from './user-model.service';
 import 'rxjs/Rx'; 
 import { Observable } from 'rxjs/Observable'; 
@@ -50,4 +50,8 @@ export class DataServiceService {
         return throwError(error);
       }))
   }
+
+  // createNewEvent (Event: any) {
+  //   return this.httpClient.post("localhost:7001/Juntos-Krowd/users/all", Event);
+  // }
 }

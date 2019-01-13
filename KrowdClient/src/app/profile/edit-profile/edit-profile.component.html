@@ -1,3 +1,94 @@
-<p>
-  edit-profile works!
-</p>
+        <!-- Defines the edit profile card with a shadow -->
+          <div class="box-shadow">
+            <div id="editInfo">
+              
+                <form (ngSubmit)="submitChanges(editInfoForm)" #editInfoForm="ngForm">
+
+                  <div class="row">
+
+                      <div class="form-row">
+                          <div class="form-group col">
+                              <div>
+                                  <img id="picture" src={{picture}}>
+                              </div>
+                              <div id="pictureButtons">
+                                <label for="eventImage">Upload an Image (Optional)</label>
+                                <br>
+                                <input type="file" ng2FileSelect [uploader]="uploader" accept="image/*;capture=camera" name="eventPhotoID" ngModel>
+                                <br>
+                                <br>
+                                <button [disabled]="loading" (click)="upload()">Upload</button>
+                              </div>
+                          </div>
+                      </div>
+                      
+                      <div id="allOtherInformation" class="col-8">
+                        <div class="row">
+                          <!-- first name -->
+                          <div class="form-group col" id="firstName">
+                            <label for="firstName">First Name</label>
+                            <input required
+                              type="text" 
+                              id="firstName" 
+                              name="firstName" 
+                              class="form-control" 
+                              [(ngModel)] = "firstName"/>
+                          </div>
+
+                          <!-- last name -->
+                          <div class="form-group col" id="lastName">
+                            <label for="lastName">Last Name</label>
+                            <input required
+                              type="text" 
+                              id="lastName" 
+                              name="lastName" 
+                              class="form-control" 
+                              [(ngModel)] = "lastName"/>
+                          </div>
+                        </div>
+                 
+                        <div class="row">
+                          <!-- username -->
+                          <div class="form-group col" id="username">
+                            <label for="username">Username</label>
+                            <input required
+                              type="text" 
+                              id="username" 
+                              name="username" 
+                              class="form-control" 
+                              [(ngModel)] = "username"/>
+                          </div>
+                  
+                    <!-- email -->
+                    <div class="form-group col" id="email">
+                      <label for="email">E-mail</label>
+                      <input required
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-control" 
+                        [(ngModel)] = "email"/>
+                    </div>
+                  </div>
+
+                    <!-- password -->
+                    <div class="form-group col" id="password">
+                      <label for="password">Password</label>
+                      <input required
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        class="form-control" 
+                        [(ngModel)] = "password"/>
+                    </div>
+                  </div>
+
+                </div>
+                    
+                    <div class="form-group" id="submitButton">
+                      <button type="submit" class="btn btn-success">Submit Changes</button>
+                    </div>
+                  </form>
+              
+            </div>
+          </div>

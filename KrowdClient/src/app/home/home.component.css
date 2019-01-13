@@ -1,4 +1,8 @@
 .jumbotron {
     text-align: center;
     margin: 20px 0px 0px 0px;
+    background-image: url("https://gooutlocal.com/wp-content/uploads/Old-Boise-CONCERT-Calendar.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 300px;
 }

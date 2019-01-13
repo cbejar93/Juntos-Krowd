@@ -1,0 +1,27 @@
+.box-shadow {
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+}
+
+#editInfo {
+    padding: 20px;
+   
+}
+
+#submitButton {
+    width: 20%;
+    margin: auto;
+}
+
+#picture {
+    width: 210px;
+    height: 210px;
+    border-radius: 100px;
+    background-color: transparent;
+    margin: 20px 20px 20px 40px;
+    position: center;
+}
+
+#pictureButtons {
+    margin: 0px 10px auto;
+}

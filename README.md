@@ -1,5 +1,5 @@
 # Juntos-Krowd
-A Java web app for creating events
+A Java web application for creating, sharing and attending events.  Krowd utilizes angular's single page application technology, giving the user seamless transitions while eliminating load times.
 
 ## Built With
 
@@ -8,6 +8,8 @@ A Java web app for creating events
 * [Angular Material](https://material.angular.io/) - Used to generate Design Components
 * [Spring](https://spring.io/) - Spring Framework
 * [Hibernate](http://hibernate.org/) - ORM Framework
+* [JUnit](https://junit.org/junit5/) - Unit Testing Framework
+* [Mockito](https://site.mockito.org/) - Unit Testing Framework
 
 ## Authors
 
