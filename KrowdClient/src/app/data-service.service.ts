@@ -15,7 +15,7 @@ export class DataServiceService {
   constructor(private httpClient: HttpClient) { }
 
   getAllEvents(){
-    return this.httpClient.get<Event []>("localhost:7001/Juntos-Krowd/users/all")
+    return this.httpClient.get<Event []>("http://localhost:7001/Juntos-Krowd/users/all")
       .map((events)=>{
         let eventData = events;
         return eventData;
@@ -26,9 +26,20 @@ export class DataServiceService {
       }))
   }
 
+  getEventbyId(id:number){
+        return this.httpClient.get<Event>(`http://localhost:7001/Juntos-Krowd/events/${id}`)
+          .map((event)=>
+          {return event;}
+              
+          )
+          .pipe(catchError(error=>{
+            return throwError(error);
+          }))
+  }
+
   getAllUsers (){
 
-   return this.httpClient.get<UserModelService []>("localhost:7001/Juntos-Krowd/users/all")
+   return this.httpClient.get<UserModelService []>("http://localhost:7001/Juntos-Krowd/users/all")
       .map(
           (users)=>{
             let usersData = users;
