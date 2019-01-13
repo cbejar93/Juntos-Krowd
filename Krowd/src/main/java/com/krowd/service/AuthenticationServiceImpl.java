@@ -35,16 +35,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	@Override
 	public Users authenticateUsers(String username, String password) {
 		Users use = null;
-		try(Session s = sf.getCurrentSession()) {
-			Transaction tx = s.beginTransaction();
-			//Work-in-progress
-			//Seeking code that will talk to database and match the entered login with the user in
-			//the Users table
-			tx.commit();
-			s.close();
-			
+		if (username.equals(use.getUsername()) && password.equals(use.getPassword())) {
+			return new Users();
+		} else {
+			return null;
 		}
-		return use;
+			
 	}
 
 }

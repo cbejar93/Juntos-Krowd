@@ -11,33 +11,44 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.krowd.beans.Users;
-import com.krowd.service.AuthenticationService;
+import com.krowd.service.AuthenticationServiceImpl;
 
 @Controller
 public class LoginController {
-
+	
 	@Autowired
-	public LoginController(AuthenticationService authenticationService) {
+	public LoginController(AuthenticationServiceImpl authService) {
 		super();
-		this.authenticationService = authenticationService;
+		this.authService = authService;
+		
 	}
 	
-	private AuthenticationService authenticationService;
+	private AuthenticationServiceImpl authService;
 	
 	@GetMapping(value = "/login")
 	public String getLoginPage() {
-		return "forward:../KrowdClient/src/app/home";
-	}
-
-	@PostMapping(value = "/login", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-	public RedirectView handleFormRequest(@RequestBody MultiValueMap<String,String> formParams, RedirectAttributes attributes) {
-		Users u = authenticationService.authenticateUsers(formParams.getFirst("username"), formParams.getFirst("password"));
-		if (u == null){
-			return new RedirectView("error");
-		} else {
-			attributes.addFlashAttribute("user", u);
-			return new RedirectView("profile");
-		}
+		
+		//Get the login page
+		return "login.html";
 	}
 	
+	//handle the form data sent to the login page
+	@PostMapping(value = "/login", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+	public RedirectView handleFormRequest(@RequestBody MultiValueMap<String, String> formParams, RedirectAttributes attributes) {
+		//to process the data entered into the form
+		Users u = authService.authenticateUsers(formParams.getFirst("username"), formParams.getFirst("password"));
+		if (u == null) {
+			//Redirect to the error page
+			return new RedirectView("error");
+		} else {
+			//Redirect to the profile page
+			attributes.addFlashAttribute("users", u);
+		return new RedirectView("profile");
+		}
+	}
+		@GetMapping(value = "/error")
+	public String getErrorPage() {
+		return "error";
+	}
+
 }

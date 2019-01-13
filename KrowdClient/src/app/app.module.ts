@@ -22,11 +22,14 @@ import { UserCommentsComponent } from './profile/user-comments/user-comments.com
 import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 import { UserEventsComponent } from './profile/user-events/user-events.component';
 import { DataServiceService } from './data-service.service';
+import { SigninComponent } from './landing/auth/signin/signin.component';
+import { SignupComponent } from './landing/auth/signup/signup.component';
+import { AuthGuardService } from './landing/auth/auth-guard.service';
 
 
 
 const appRoutes: Routes = [
-  { path:'home', component: HomeComponent},
+  { path:'home', component: HomeComponent },
   { path:'profile', component: ProfileComponent, 
   
     children:[
@@ -35,9 +38,16 @@ const appRoutes: Routes = [
     {path: 'edit', component: EditProfileComponent}
   ]
   },
-  {path: 'create', component: EventCreatorComponent },
-  {path: 'landing', component: LandingComponent},
-  {path:'event/:id/:description/:name/:address', component: EditEventComponent},
+  {path: 'create', component: EventCreatorComponent},
+  {path: 'landing', component: LandingComponent
+  ,
+  children:[
+    {path: 'signup', component: SignupComponent},
+    {path: 'signin', component: SigninComponent}
+  ]
+  
+  },
+  {path:'event/:id/:description/:name/:address', component: EditEventComponent, canActivate:[AuthGuardService]},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 
@@ -58,7 +68,9 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     UserCommentsComponent,
     EditProfileComponent,
-    UserEventsComponent
+    UserEventsComponent,
+    SigninComponent,
+    SignupComponent
     
 
   ],
