@@ -43,15 +43,12 @@ public class LoginController {
 		} else {
 			//Redirect to the profile page
 			attributes.addFlashAttribute("users", u);
-			return new RedirectView("profile");
+		return new RedirectView("profile");
 		}
 	}
-	
-	@GetMapping(value = "/error")
+		@GetMapping(value = "/error")
 	public String getErrorPage() {
 		return "error";
 	}
-	
-	
 
 }
