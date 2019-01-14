@@ -25,6 +25,7 @@ import { DataServiceService } from './data-service.service';
 import { SigninComponent } from './landing/auth/signin/signin.component';
 import { SignupComponent } from './landing/auth/signup/signup.component';
 import { AuthGuardService } from './landing/auth/auth-guard.service';
+import { AuthService } from './landing/auth/auth.service';
 
 
 
@@ -85,7 +86,7 @@ const appRoutes: Routes = [
     NgbModule
 
   ],
-  providers: [DataServiceService],
+  providers: [DataServiceService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
