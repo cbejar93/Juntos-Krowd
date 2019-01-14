@@ -19,13 +19,13 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public void addComment(Comments comment) {
+	public void createComment(Comments comment) {
 		ud.createComment(comment);
 	}
 
 	@Override
 	public void updateComment(Comments comment) {
-		// TODO Auto-generated method stub
+		ud.updateComment(comment);
 	}
 
 	@Override
@@ -38,9 +38,16 @@ public class CommentServiceImpl implements CommentService {
 		return ud.getCommentById(id);
 	}
 
-//	@Override
-//	public void updateFollow(Comments comment, Comments comment2) {
-//		// TODO
-//	}
+	@Override
+	public List<Comments> getCommentsByUserId(int user_Id) {
+		
+		return ud.getCommentsByUserId(user_Id);
+	}
+
+	@Override
+	public List<Comments> getCommentsByEventId(int event_Id) {
+		return ud.getCommentsByEventId(event_Id);
+	}
+
 
 }

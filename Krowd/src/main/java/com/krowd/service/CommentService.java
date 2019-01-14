@@ -7,11 +7,12 @@ import com.krowd.beans.Users;
 
 public interface CommentService {
 	
-	public List<Comments> getAllComments();
-	public void addComment(Comments comment);
-	public void updateComment(Comments comment);
+	List<Comments> getAllComments();
+	public Comments getCommentById(int comment_Id);
+	List<Comments> getCommentsByUserId(int user_Id);
+	List<Comments> getCommentsByEventId(int event_Id);
 	public void deleteComment(int comment_Id);
-	public Comments getCommentById(int id); 
-
+	public void updateComment(Comments comments);
+	public void createComment(Comments comments);
 //	public void updateFollow(Users user, Users user2);
 }

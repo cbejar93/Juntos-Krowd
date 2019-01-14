@@ -23,6 +23,7 @@ public class LoginController {
 		
 	}
 	
+	
 	private AuthenticationServiceImpl authService;
 	
 	@GetMapping(value = "/login")
@@ -42,7 +43,7 @@ public class LoginController {
 			return new RedirectView("error");
 		} else {
 			//Redirect to the profile page
-			attributes.addFlashAttribute("users", u);
+			attributes.addFlashAttribute("user", u);
 			return new RedirectView("profile");
 		}
 	}

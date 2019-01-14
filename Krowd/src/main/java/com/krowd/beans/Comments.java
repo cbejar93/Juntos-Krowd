@@ -47,6 +47,7 @@ public class Comments {
 	private Events event;
 	@Column(name = "CREATED")
 	private LocalDate Created;
+	@Column(name = "USER_ID")
 	private int user_id;
 
 	public int getComment_id() {
