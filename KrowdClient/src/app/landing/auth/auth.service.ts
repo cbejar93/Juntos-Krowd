@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient, private user: UserModelService, private router: Router) { }
 
   signUpUser(username: string, password: string){
-      this.http.post("what is the url shit", {username, password}).subscribe((event)=> console.log(event))
+      this.http.post("http://localhost:8080/Juntos-Krowd/login", {username, password}).subscribe((event)=> console.log(event))
 
   }
 
