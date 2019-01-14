@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSignUp(form :NgForm){
+  onSignUp(form: NgForm) {
       const username = form.value.username;
       const password = form.value.password;
 
