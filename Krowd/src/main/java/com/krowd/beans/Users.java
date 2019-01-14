@@ -26,6 +26,15 @@ public Users(String firstname, String lastname, String username, String email, i
 		this.photo_url = photo_url;
 	}
 
+public Users(String firstname, String lastname, String username, String email, String password) {
+	super();
+	this.firstname = firstname;
+	this.lastname = lastname;
+	this.username = username;
+	this.email = email;
+	this.password = password;
+}
+
 public Users() {
 		super();
 		// TODO Auto-generated constructor stub

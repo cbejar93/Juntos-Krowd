@@ -42,14 +42,50 @@ public class CommentController {
 		}
 		
 	}
+	@GetMapping(value="/user/{id}")
+	@ResponseBody
+	public ResponseEntity<List<Comments>> getcommentsByUserId(@PathVariable int id){
+		List<Comments> u = commentService.getCommentsByUserId(id);
+		if (u == null) {
+			return new ResponseEntity<>(null, HttpStatus.I_AM_A_TEAPOT);
+		} else {
+			return new ResponseEntity<>(u, HttpStatus.OK);
+		}
+		
+	}
+	@GetMapping(value="/event/{id}")
+	@ResponseBody
+	public ResponseEntity<List<Comments>> getcommentsByEventId(@PathVariable int id){
+		List<Comments> u = commentService.getCommentsByEventId(id);
+		if (u == null) {
+			return new ResponseEntity<>(null, HttpStatus.I_AM_A_TEAPOT);
+		} else {
+			return new ResponseEntity<>(u, HttpStatus.OK);
+		}
+		
+	}
 	
 	@PostMapping(value="/add")
 	@ResponseBody
 	public ResponseEntity<String> addcomment(@RequestBody Comments comment){
 		ResponseEntity<String> resp = null;
 		try {
-			commentService.addComment(comment);
+			commentService.createComment(comment);
 			resp = new ResponseEntity<>("comment Created!", HttpStatus.OK);
+			
+		} catch (Exception e) {
+			resp = new ResponseEntity<>("No comment Created, Try Again", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
+	}
+	
+	@PostMapping(value="/update")
+	@ResponseBody
+	public ResponseEntity<String> updateomment(@RequestBody Comments comment){
+		ResponseEntity<String> resp = null;
+		try {
+			commentService.updateComment(comment);
+			resp = new ResponseEntity<>("comment updated!", HttpStatus.OK);
 			
 		} catch (Exception e) {
 			resp = new ResponseEntity<>("No comment Created, Try Again", HttpStatus.BAD_REQUEST);

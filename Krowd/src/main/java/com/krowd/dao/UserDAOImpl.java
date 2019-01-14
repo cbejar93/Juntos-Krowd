@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import com.krowd.beans.Users;
 import com.krowd.util.HibernateUtil;
@@ -75,6 +76,8 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return user;
 	}
+
+	
 
 //	@Override
 //	public void updateFollow(Users user, Users user2) {

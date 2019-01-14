@@ -162,3 +162,43 @@ ALTER TABLE USERS
 DROP COLUMN PHOTO_ID;
 
 COMMIT;
+
+
+ALTER TABLE EVENTS
+DROP COLUMN PHOTO_ID;
+
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (2, null, '9430 Elgar Street', null, null,TO_DATE ('2018-02-18 00:52:40','yyyy-mm-dd hh24:mi:ss'), 16,TO_DATE('2018-01-21 01:27:17','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (3, null, '990 Carioca Lane', null, null,TO_DATE ('2018-06-27 08:04:45','yyyy-mm-dd hh24:mi:ss'), 17, TO_DATE('2018-03-04 10:59:11','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (4, null, '620 Mifflin Lane', null, null, TO_DATE('2018-10-21 01:54:33','yyyy-mm-dd hh24:mi:ss'), 18, TO_DATE('2018-11-17 02:20:23','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (5, null, '993 Farragut Parkway', null, null, TO_DATE('2018-02-12 16:16:43','yyyy-mm-dd hh24:mi:ss'), 19, TO_DATE('2018-06-10 17:54:00','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (6, null, '971 Arapahoe Pass', null, null, TO_DATE('2018-12-23 23:10:13','yyyy-mm-dd hh24:mi:ss'), 20, TO_DATE('2018-05-06 03:44:37','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (7, null, '24 Carey Parkway', null, null, TO_DATE('2018-08-16 10:17:10','yyyy-mm-dd hh24:mi:ss'), 21, TO_DATE('2018-07-10 16:34:19','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (8, null, '4262 Northwestern Junction', null, null, TO_DATE('2018-10-13 22:02:21','yyyy-mm-dd hh24:mi:ss'), 22, TO_DATE('2018-12-27 21:17:46','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (9, null, '7 Sachs Terrace', null, null, TO_DATE('2018-02-15 03:50:25','yyyy-mm-dd hh24:mi:ss'), 23, TO_DATE('2018-12-18 12:25:45','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (10, null, '31 Hermina Alley', null, null, TO_DATE('2018-11-28 07:00:00','yyyy-mm-dd hh24:mi:ss'), 24, TO_DATE('2018-05-31 11:07:58','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (11, null, '8791 Dovetail Hill', null, null, TO_DATE('2018-11-26 20:36:54','yyyy-mm-dd hh24:mi:ss'), 25, TO_DATE('2018-10-06 14:12:40','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (12, null, '57 Manufacturers Road', null, null, TO_DATE('2018-07-20 03:55:49','yyyy-mm-dd hh24:mi:ss'), 26, TO_DATE('2019-01-07 16:35:51','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (13, null, '700 Blaine Center', null, null, TO_DATE('2018-04-25 12:19:44','yyyy-mm-dd hh24:mi:ss'), 27, TO_DATE('2018-07-27 04:49:50','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (14, null, '60 Monica Circle', null, null, TO_DATE('2018-07-21 12:40:07','yyyy-mm-dd hh24:mi:ss'), 28, TO_DATE('2018-09-05 14:00:41','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (15, null, '3762 Leroy Plaza', null, null, TO_DATE('2018-01-13 05:59:10','yyyy-mm-dd hh24:mi:ss'), 29, TO_DATE('2018-02-28 18:13:41','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (16, null, '5765 Memorial Circle', null, null, TO_DATE('2018-08-13 17:45:46','yyyy-mm-dd hh24:mi:ss'), 30, TO_DATE('2018-05-07 13:50:09','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (17, null, '55 Crescent Oaks Road', null, null, TO_DATE('2018-02-08 18:47:19','yyyy-mm-dd hh24:mi:ss'), 31, TO_DATE('2018-05-28 12:27:49','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (18, null, '5589 Raven Street', null, null, TO_DATE('2018-03-09 05:36:19','yyyy-mm-dd hh24:mi:ss'), 32, TO_DATE('2018-03-13 21:46:41','yyyy-mm-dd hh24:mi:ss'), null);
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (19, null, '4 Old Gate Pass', null, null, TO_DATE('2018-09-11 19:01:24','yyyy-mm-dd hh24:mi:ss'), 33, TO_DATE('2018-10-20 23:46:43','yyyy-mm-dd hh24:mi:ss'), null);
+
+
+insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (3, 'Best Event Ever', 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
+insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (4, 'Ive Never Been TO Better', 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
+insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (5, 'Troys bash too cool!', 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
+insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (6, 'Frat 201 always got the best parties', 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
+insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (7, 'Joes B-day bash too lit', 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
+insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (8, 'Krowd always hosting the best events', 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
+insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (9, 'Having the best time at Elias Magic party', 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
+insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (10, 'Best time ever at 201, no surprise!', 2, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
+insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (11, 'Nicks party is so fun', 2, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
+insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (12, 'BRO! YOUVE NEVER BEEN TO ONE OF CARLOS PARTIES???', 2, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
+insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (13, 'Shout Out to Kaleigh for invite to the BEST EVENT OF 2019', 2, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
+insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (14, 'Krowd! you Really Did you Thing With This One!', 2, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
+
+
+COMMIT;

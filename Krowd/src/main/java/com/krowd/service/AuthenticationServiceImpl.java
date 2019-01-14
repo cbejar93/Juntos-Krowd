@@ -1,13 +1,13 @@
 package com.krowd.service;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import org.springframework.stereotype.Service;
 
 import com.krowd.beans.Credentials;
 import com.krowd.beans.Users;
 import com.krowd.util.HibernateUtil;
 
+@Service
 public class AuthenticationServiceImpl implements AuthenticationService {
 	
 	private SessionFactory sf = HibernateUtil.getSessionFactory();
@@ -18,6 +18,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	 * as a user.(non-Javadoc)
 	 * @see com.krowd.service.AuthenticationService#isValidUser(com.krowd.beans.Credentials)
 	 */
+	
+	
 	@Override
 	public Users isValidUser(Credentials credentials) {
 		Users user = null;
@@ -34,8 +36,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	 */
 	@Override
 	public Users authenticateUsers(String username, String password) {
-		Users use = null;
-		if (username.equals(use.getUsername()) && password.equals(use.getPassword())) {
+		
+		if (username.equals(username) && password.equals(password)) {
 			return new Users();
 		} else {
 			return null;

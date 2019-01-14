@@ -49,9 +49,9 @@ public class Events {
 	private LocalDate event_date;
 	@JoinColumn(name = "USER_ID", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
 	private int user_id;
-	@JoinColumn(name = "photo_url", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+	@Column(name = "photo_url")
 	private String photo_url;
-	@JoinColumn(name = "EVENT_ID", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+	@Column(name = "CREATED")
 	private LocalDate created;
 	
 	public int getEvent_id() {
