@@ -51,7 +51,35 @@ export class DataServiceService {
       }))
   }
 
-  // createNewEvent (Event: any) {
-  //   return this.httpClient.post("localhost:7001/Juntos-Krowd/users/all", Event);
-  // }
+  //everything below here needs to be modified
+
+  createNewEvent (Event: any) {
+    return this.httpClient.post("localhost:7001/Juntos-Krowd/event/add", Event);
+  }
+
+  editUserInfo(userId: number) {
+    return this.httpClient.put("localhost:7001/Juntos-Krowd/users/all", userId)
+  }
+
+  getEventsByUserId(userId: number) {
+    return this.httpClient.get<Event []>(`http://localhost:7001/Juntos-Krowd/events/${userId}`)
+          .map((events)=>{
+            let eventData = events;
+            return eventData;
+          })
+          .pipe(catchError(error=>{
+            return throwError(error);
+          }))
+  }
+
+  getCommentsByUserId(userId: number) {
+    return this.httpClient.get<Comment []>(`http://localhost:7001/Juntos-Krowd/comments/${userId}`)
+          .map((comments)=>{
+            let commentData = comments;
+            return commentData;
+          })
+          .pipe(catchError(error=>{
+            return throwError(error);
+          }))
+  }
 }

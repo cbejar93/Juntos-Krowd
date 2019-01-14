@@ -1,5 +1,10 @@
 <div class="box-shadow">
     <div id="events">
-
+        <div class="eventFromList card" *ngFor="let event of events">
+          {{event.name}}
+        </div>
+        <div id="default" [hidden] = "null">
+          No events yet! Click the "Create" tab above to create a new event.
+        </div>
     </div>
 </div>
