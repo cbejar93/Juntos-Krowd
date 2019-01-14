@@ -16,6 +16,7 @@ export class SignupComponent implements OnInit {
   onSignUp(form: NgForm) {
       const username = form.value.username;
       const password = form.value.password;
+      console.log("hello there")
 
 
   }
