@@ -10,25 +10,25 @@ export class AuthService {
 
   constructor(private http: HttpClient, private user: UserModelService, private router: Router) { }
 
-  signUpUser(username: string, password: string){
-      this.http.post("http://localhost:8080/Juntos-Krowd/login", {username, password}).subscribe((event)=> console.log(event))
+  signUpUser(username: string, password: string) {
+    this.http.post('http://localhost:8080/Juntos-Krowd/login', { username, password }).subscribe((event) => console.log(event));
 
   }
 
-  signInUser(username: string, password: string){
+  signInUser(username: string, password: string) {
 
-      this.http.post("some url shit i dont know yet", {username, password})
-      
-        .subscribe((event)=> 
-        this.router.navigate(["/home"]))
-        
+    this.http.post('http://localhost:8080/Juntos-Krowd/login', { username, password })
+
+      .subscribe((event) =>
+        this.router.navigate(['/home']));
+
   }
 
-  isAuthenticated(){
-    return this.user != null
+  isAuthenticated() {
+    return this.user != null;
   }
 
-  logOut(){
+  logOut() {
 
   }
 }
