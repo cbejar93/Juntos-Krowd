@@ -3,11 +3,12 @@
     <div class="row">
   
       <!-- col-sm3 specifies 3 columns in the container -->
-      <div class="card col-sm3">
-        <img class="card-img-top" src="..." alt="Card image cap">
+      <div *ngFor="let event of events" class="card col-sm3">
+        <img class="card-img-top" src="{{Event.event_url}}" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Event #1</h5>
-          <p class="card-text">This is the description for the event.</p>
+          <h5 class="card-title">Event #1 {{Event.name}}</h5>
+          <p class="card-text">This is the description for the event. {{Event.description}}</p>
+          <!-- href TBD for now -->
           <a href="#" class="btn btn-primary">Register</a>
         </div>
       </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { DataServiceService } from 'src/app/data-service.service';
 
 @Component({
   selector: 'app-event-list',
@@ -8,10 +10,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class EventListComponent implements OnInit {
 
  @Input() eventList= [];
-  constructor() { }
+  constructor(private httpClient: HttpClient, private dataService: DataServiceService) { }
 
   ngOnInit() {
-  
+    this.getAllEvents();
+  }
+
+  getAllEvents() {
+      console.log(this.dataService.getAllEvents());
+      return this.dataService.getAllEvents();
   }
 
 }
