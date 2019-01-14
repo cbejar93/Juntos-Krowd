@@ -2,10 +2,10 @@
     <nav>
       <div></div>
       <ul>
-        <li [ngClass]="{active: nameOfClick==='home'}" ><a (click)="getID($event)" id="home" routerLink="/home">Home</a></li>
-        <li [ngClass]="{active: nameOfClick==='profile'}" ><a (click)="getID($event)" id="profile" routerLink="/profile">Profile</a></li>
-        <li [ngClass]="{active: nameOfClick==='create'}"><a (click)="getID($event)" id="create" routerLink="/create">Create</a></li>
-        <li [ngClass]="{active: nameOfClick==='logout'}" (click)="onLogout()"  (click)="getID($event)" id="logout">Logout</li>
+        <a (click)="getID($event)" id="home" routerLink="/home"><li [ngClass]="{active: nameOfClick==='home'}" >Home</li></a>
+        <a (click)="getID($event)" id="profile" routerLink="/profile"><li [ngClass]="{active: nameOfClick==='profile'}" >Profile</li></a>
+        <a (click)="getID($event)" id="create" routerLink="/create"><li [ngClass]="{active: nameOfClick==='create'}">Create</li></a>
+        <li [ngClass]="{active: nameOfClick==='logout'}"(click)="onLogout()"(click)="getID($event)" id="logout">Log Out</li>
       </ul>
     </nav>
   </div>
