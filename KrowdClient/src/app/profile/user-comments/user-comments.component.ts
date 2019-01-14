@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from 'src/app/data-service.service';
 
 @Component({
   selector: 'app-user-comments',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserCommentsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataServiceService) { }
 
   ngOnInit() {
+    this.getCommentsByUserId();
+  }
+
+  getCommentsByUserId() {
+    var userId = 2;
+    this.dataService.getCommentsByUserId(userId) 
+        .subscribe(
+          (response) => console.log(response),
+          (error) => console.log(error)
+        );
   }
 
 }

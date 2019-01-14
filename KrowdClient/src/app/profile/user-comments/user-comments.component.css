@@ -6,3 +6,11 @@
 #comments {
     padding: 20px;
 }
+
+#default {
+    text-align: center;
+}
+
+th {
+    text-align: center;
+}

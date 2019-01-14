@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CloudinaryOptions, CloudinaryUploader } from 'ng2-cloudinary';
+import { DataServiceService } from '../../data-service.service'
 
 @Component({
   selector: 'app-edit-profile',
@@ -9,17 +10,22 @@ import { CloudinaryOptions, CloudinaryUploader } from 'ng2-cloudinary';
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {
-
+  constructor(http: HttpClient, private dataService: DataServiceService) { }
+  
   ngOnInit() {
   }
 
-  submitChanges(form: NgForm) {}
+  
+  submitChanges(form: NgForm) {
+    var userId = 2;
+    this.dataService.editUserInfo(userId);
+  }
 
   //code for image upload
   selectedFile: File = null;
   imageURL: string;
   picture: string = "https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png";
-  constructor(http: HttpClient) { }
+  
 
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'dhazivqjc', uploadPreset: 'zalhcbr6' })

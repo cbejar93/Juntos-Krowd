@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from '../../data-service.service'
 
 @Component({
   selector: 'app-user-events',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserEventsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataServiceService) { }
 
   ngOnInit() {
+    this.getEventsByUserId();
+  }
+
+  getEventsByUserId() {
+    var userId = 2;
+    this.dataService.getEventsByUserId(userId)
+      .subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error)
+      );
   }
 
 }
