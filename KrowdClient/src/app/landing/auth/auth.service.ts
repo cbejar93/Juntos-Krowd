@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserModelService } from 'src/app/user-model.service';
+// import { UserModelService } from 'src/app/user-model.service';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private user: UserModelService, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   signUpUser(username: string, password: string) {
     this.http.post('http://localhost:8080/Juntos-Krowd/login', { username, password }).subscribe((event) => console.log(event));
@@ -25,7 +25,8 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    return this.user != null;
+    // return this.user != null;
+    return false;
   }
 
   logOut() {
