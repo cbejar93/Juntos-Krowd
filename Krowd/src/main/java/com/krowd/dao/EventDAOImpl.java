@@ -73,5 +73,17 @@ public class EventDAOImpl implements EventDAO {
 		return events;
 	}
 
+	@Override
+	public Events getEventByUserId(int userid) {
+		
+		Events evn = null;
+		try (Session s = sf.getCurrentSession()) {
+			Transaction tx = s.beginTransaction();
+			evn = (Events) s.get(Events.class, userid);
+			tx.commit();
+		}
+		return evn;
+	}
+
 
 }
