@@ -13,11 +13,12 @@ import { DataServiceService } from '../data-service.service';
 export class EventCreatorComponent implements OnInit {
   submitted = false;
 
+
   ngOnInit() {
   }
 
   constructor(http: HttpClient, private dataService: DataServiceService) { }
-  onEventCreated(form: NgForm){ 
+  onEventCreated(form: NgForm) {
     //code for adding the new event to the database
     console.log('Event Successfully Created');
     console.log(form);
@@ -29,14 +30,15 @@ export class EventCreatorComponent implements OnInit {
     var month = dateObj.getUTCMonth() + 1; //months from 1-12
     var day = dateObj.getUTCDate();
     var year = dateObj.getUTCFullYear();
-    
+
     let eventDateCreated = day + "/" + month + "/" + year;
     console.log(eventDateCreated);
 
-    const newEvent = new Event(null, value.eventName, 
-      value.eventLocation, value.eventDescription, 
-      value.eventCategory, value.eventDate, 
-      null, this.imageURL, 
+    const newEvent = new Event(null, value.eventName,
+      value.eventLocation, value.eventDescription,
+      value.eventCategory, value.eventDate,
+      null, this.imageURL,
+
       eventDateCreated, value.eventPeople);
 
     console.log(newEvent);
@@ -44,31 +46,31 @@ export class EventCreatorComponent implements OnInit {
     this.dataService.createNewEvent(newEvent);
   }
 
-//code for image upload
+  //code for image upload
   selectedFile: File = null;
   imageURL: string;
   picture: string = "http://saveabandonedbabies.org/wp-content/uploads/2015/08/default.png";
-  
+
 
   uploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'dhazivqjc', uploadPreset: 'zalhcbr6' })
-    );
+  );
 
-    loading: any;
-    upload(){
-      this.loading = true;
-      this.uploader.uploadAll();
-      this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any): any => {
-           let res: any = JSON.parse(response);
-           console.log(res);
-           this.imageURL=res.url;
-           console.log(this.imageURL);
-           this.picture=this.imageURL;
-       }
-       this.uploader.onErrorItem = function(fileItem, response, status, headers) {
-          console.info('onErrorItem', fileItem, response, status, headers);
-        };
-        console.log("picture upload successful")
+  loading: any;
+  upload() {
+    this.loading = true;
+    this.uploader.uploadAll();
+    this.uploader.onSuccessItem = (item: any, response: string, status: number, headers: any): any => {
+      let res: any = JSON.parse(response);
+      console.log(res);
+      this.imageURL = res.url;
+      console.log(this.imageURL);
+      this.picture = this.imageURL;
     }
+    this.uploader.onErrorItem = function (fileItem, response, status, headers) {
+      console.info('onErrorItem', fileItem, response, status, headers);
+    };
+    console.log("picture upload successful")
+  }
 
 }

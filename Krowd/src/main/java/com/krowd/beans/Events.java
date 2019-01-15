@@ -32,8 +32,7 @@ public class Events {
 		this.created = created;
 		this.eventGuests = eventGuests;
 	}
-	
-	
+
 	public Events(String event_name, String event_location, String event_description, String event_type,
 			LocalDate event_date, int user_id, String photo_url, LocalDate created, int eventGuests) {
 		super();
@@ -47,7 +46,6 @@ public class Events {
 		this.created = created;
 		this.eventGuests = eventGuests;
 	}
-	
 
 	@Id
 	@Column(name = "EVENT_ID")
@@ -64,13 +62,13 @@ public class Events {
 	private LocalDate event_date;
 	@JoinColumn(name = "USER_ID", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
 	private int user_id;
-	@Column(name = "photo_url")
+	@Column(name = "PHOTO_URL")
 	private String photo_url;
 	@Column(name = "CREATED")
 	private LocalDate created;
 	@Column(name = "EVENTS_MAXGUESTS")
 	private int eventGuests;
-	
+
 	public int getEvent_id() {
 		return event_id;
 	}
@@ -78,55 +76,63 @@ public class Events {
 	public void setEvent_id(int event_id) {
 		this.event_id = event_id;
 	}
+
 	public String getEvent_name() {
 		return event_name;
 	}
+
 	public void setEvent_name(String event_name) {
 		this.event_name = event_name;
 	}
+
 	public String getEvent_location() {
 		return event_location;
 	}
+
 	public void setEvent_location(String event_location) {
 		this.event_location = event_location;
 	}
+
 	public String getEvent_description() {
 		return event_description;
 	}
+
 	public void setEvent_description(String event_description) {
 		this.event_description = event_description;
 	}
+
 	public String getEvent_type() {
 		return event_type;
 	}
+
 	public void setEvent_type(String event_type) {
 		this.event_type = event_type;
 	}
+
 	public LocalDate getEvent_date() {
 		return event_date;
 	}
+
 	public void setEvent_date(LocalDate event_date) {
 		this.event_date = event_date;
 	}
+
 	public int getUser_id() {
 		return user_id;
 	}
+
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
-	public String
-	getphoto_url() {
-		return photo_url;
-	}
-	public void setphoto_url(String photo_url) {
-		this.photo_url = photo_url;
-	}
+
 	public LocalDate getCreated() {
 		return created;
 	}
+
 	public void setCreated(LocalDate created) {
 		this.created = created;
 	}
+
 	@Override
 	public String toString() {
 		return "Events [event_id=" + event_id + ", event_name=" + event_name + ", event_location=" + event_location
@@ -150,6 +156,5 @@ public class Events {
 	public void setEventGuests(int eventGuests) {
 		this.eventGuests = eventGuests;
 	}
-	
-	
+
 }
