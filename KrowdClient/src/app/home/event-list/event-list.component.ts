@@ -26,10 +26,14 @@ export class EventListComponent implements OnInit {
             for (let event of events) {
               console.log(event)
               this.eventList2.push(event)
+              if (event.photo_url===null){
+                event.photo_url= "http://saveabandonedbabies.org/wp-content/uploads/2015/08/default.png";
+                }
               }
             },
           (error)=> console.log(error)
           );
+
 
         console.log(this.eventList2);
         return this.eventList2;
