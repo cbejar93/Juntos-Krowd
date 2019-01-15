@@ -39,7 +39,7 @@ public class EventServiceImpl implements EventService {
 	}
 
 	@Override
-	public Events getEventByUserId(int userid) {
+	public List<Events> getEventByUserId(int userid) {
 		return ud.getEventByUserId(userid);
 	}
 

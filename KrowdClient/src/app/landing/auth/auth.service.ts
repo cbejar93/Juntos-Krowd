@@ -11,8 +11,8 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   httpHeaders = new HttpHeaders({
-    'Content-Type' : 'application/json',
-}); 
+    'Content-Type': 'application/json',
+  });
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -21,29 +21,14 @@ export class AuthService {
 
   }
 
-  signInUser(username, password): Observable<any> {
+  signInUser(username, password) {
 
-    return this.http.post('http://localhost:8080/Krowd/login/sent', {"username": username, "password": password},
-    {
-		  headers: this.httpHeaders,
-		  observe: 'response'
-		}
-    )
+    this.http.post('http://localhost:8080/Krowd/login/sent', { 'username': username, 'password': password })
+      .subscribe((event) => this.router.navigate(['/home']));
 
-      // .map((user)=>{
-      //   this.router.navigate(['/home']);
 
-      //   console.log(user);
-      //   return user;
-      // })
 
-        // console.log(event);
 
-          // .subscribe((event)=> this.router.navigate([/home]))
-
-      
-
-      
 
   }
 
@@ -55,7 +40,7 @@ export class AuthService {
 
   logOut() {
 
-    
+
 
   }
 }
