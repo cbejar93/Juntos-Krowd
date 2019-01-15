@@ -41,7 +41,7 @@ create table COMMENTS (
 	DATA VARCHAR(250),
 	EVENT_ID INT,
     CREATED DATE,
-    USER_ID INT;
+    USER_ID INT
 );
 /
 
@@ -71,6 +71,13 @@ COMMIT;
 
 ALTER TABLE COMMENTS ADD PRIMARY KEY(COMMENT_ID);
 
+ALTER TABLE EVENTS
+DROP COLUMN PHOTO_ID;
+
+COMMIT;
+
+ALTER TABLE USERS ADD PHOTO_URL VARCHAR (250);
+
 COMMIT;
 
 insert into USERS (USER_ID, FIRSTNAME, LASTNAME, USERNAME, EMAIL, TOKEN_SCORE, PASSWORD, PHOTO_URL) values (15, 'Raine', 'Kirton', 'rkirton0', 'rkirton0@tiny.cc', 9, 'jBTuWlLjpHBE', null);
@@ -94,7 +101,6 @@ COMMIT;
 
 -- EVENTS FILL FOR TESTIN
 -- COMMENTS FILL FOR TESTING
-insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (1, null, 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
 
 COMMIT;
 
@@ -157,14 +163,6 @@ INSERT INTO USER_EVENTS (USER_ID, EVENT_ID) VALUES (16,1);
 
 COMMIT;
 
-ALTER TABLE USERS
-DROP COLUMN PHOTO_ID;
-
-COMMIT;
-
-
-ALTER TABLE EVENTS
-DROP COLUMN PHOTO_ID;
 
 insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (1, null, '9430 Elgar Street', null, null,TO_DATE ('2018-02-18 00:52:40','yyyy-mm-dd hh24:mi:ss'), 15,TO_DATE('2018-01-21 01:27:17','yyyy-mm-dd hh24:mi:ss'), null);
 
@@ -189,6 +187,7 @@ insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVE
 
 COMMIT;
 
+insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (1, null, 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
 insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (3, 'Best Event Ever', 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
 insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (4, 'Ive Never Been TO Better', 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
 insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (5, 'Troys bash too cool!', 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
@@ -204,3 +203,6 @@ insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (14,
 
 
 COMMIT;
+
+
+
