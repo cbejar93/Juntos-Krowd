@@ -46,11 +46,15 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		UserDAO ud = new UserDAOImpl();
 		List<Users> list = null;
 		Users u = null;
+		System.out.println(creds);
+	
 		
 		try {	
-			list = ud.getUsersByUserAndPass(creds.getUsername(), creds.getPassword());
+//			list = ud.getUsersByUserAndPass(creds.getUsername(), creds.getPassword());
+			list = ud.getAllUsers();
 			for(Users u2 : list) {
-				if (u2.getUsername() == creds.getUsername() && u2.getPassword() == creds.getPassword()) {
+				System.out.println(u2);
+				if (u2.getUsername().equals(creds.getUsername() )&& u2.getPassword().equals(creds.getPassword())) {
 
 					System.out.println("GOTCHA BETCH!");
 					

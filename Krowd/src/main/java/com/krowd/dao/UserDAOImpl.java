@@ -83,6 +83,7 @@ public class UserDAOImpl implements UserDAO {
 		try (Session s = sf.getCurrentSession()){
 			Transaction tx = s.beginTransaction();
 			user = s.createQuery("from Users where USERNAME = " + username + " and PASSWORD = " + password).getResultList();
+			
 			tx.commit();
 			s.close();
 		}
