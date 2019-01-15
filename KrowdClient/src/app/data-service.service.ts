@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Event } from './home/event.model';
 import { UserModelService } from './user-model.service';
 import 'rxjs/Rx';
@@ -11,6 +11,11 @@ import { throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class DataServiceService {
+  httpHeaders = new HttpHeaders ({
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  });
 
   constructor(private httpClient: HttpClient) { }
 
@@ -19,7 +24,6 @@ export class DataServiceService {
       .map((events) => {
         let eventData = events;
         return eventData;
-
       })
       .pipe(catchError(error => {
         return throwError(error);
@@ -52,10 +56,19 @@ export class DataServiceService {
 
   //everything below here needs to be modified
 
-  createNewEvent(event: Event) {
+
+  createNewEvent (event: Event) {
+
     console.log("new event sent to the database");
     console.log(event);
-    return this.httpClient.post("http://localhost:8080/Krowd/event/add", event);
+    return this.httpClient.post("http://localhost:8080/Krowd/event/add", event, 
+    {
+      headers: this.httpHeaders,
+    }
+    )
+      .subscribe((res)=>
+        console.log(res)
+      )
   }
 
   editUserInfo(userId: number) {
@@ -63,6 +76,7 @@ export class DataServiceService {
   }
 
   getEventsByUserId(userId: number) {
+
     return this.httpClient.get<Event[]>(`http://localhost:8080/Krowd/event/user/${userId}`)
       .map((events) => {
         let eventData = events;

@@ -40,7 +40,7 @@ export class EventCreatorComponent implements OnInit {
       null, this.imageURL,
 
       eventDateCreated, value.eventPeople);
-    // this.eventCreated.emit({ eventName: this.newEventName });
+
     console.log(newEvent);
     this.submitted = true;
     this.dataService.createNewEvent(newEvent);
