@@ -54,6 +54,8 @@ export class DataServiceService {
   //everything below here needs to be modified
 
   createNewEvent (event: Event) {
+    console.log("new event sent to the database");
+    console.log(event);
     return this.httpClient.post("http://localhost:8080/Krowd/event/add", event);
   }
 
