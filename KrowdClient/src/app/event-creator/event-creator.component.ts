@@ -12,8 +12,7 @@ import { DataServiceService } from '../data-service.service';
 })
 export class EventCreatorComponent implements OnInit {
   submitted = false;
-  @Output() eventCreated = new EventEmitter<{eventName:string}>();
-  newEventName:string;
+ 
 
   ngOnInit() {
   }
@@ -30,7 +29,6 @@ export class EventCreatorComponent implements OnInit {
       value.eventCategory, value.eventDate, 
       null, this.imageURL, 
       null, value.eventPeople);
-    this.eventCreated.emit({eventName: this.newEventName});
     console.log(newEvent);
     this.submitted = true;
     this.dataService.createNewEvent(newEvent);

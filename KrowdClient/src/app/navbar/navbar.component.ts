@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
     this.nameOfClick = event.srcElement.id
     console.log(this.nameOfClick);
     if (this.nameOfClick ==='home'){
-      // console.log('fuck off')
+      console.log(this.nameOfClick);
     }
   }
 
