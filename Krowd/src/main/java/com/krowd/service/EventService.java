@@ -13,7 +13,7 @@ public interface EventService {
 	public void updateEvents(Events event);
 	public void deleteEvents(Events event);
 	public Events getEventById(int id);
-	public Events getEventByUserId(int userid);
+	public List<Events> getEventByUserId(int userid);
 
 //	public void updateFollow(Events event, Events event2);
 }

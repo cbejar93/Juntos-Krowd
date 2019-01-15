@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,13 +19,13 @@ import com.krowd.beans.Comments;
 import com.krowd.service.CommentService;
 
 @Controller
+@CrossOrigin(origins="http://localhost:4200")
 @RequestMapping(value="/comment")
 public class CommentController {
 	@Autowired
 	private CommentService commentService;
 	
 //	comments u1 = new comments(200,"The","Greatest","ImTheMan","WhoAmI23@gmail.com",100,"ImBetterThanTheBest","BetterThanYou.url");
-	
 	@RequestMapping(value="/all", method=RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<List<Comments>> getAllcomments(){
