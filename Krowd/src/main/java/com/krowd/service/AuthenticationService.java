@@ -7,7 +7,7 @@ public interface AuthenticationService {
 	
 	public Users isValidUser(Credentials credentials);
 	
-	public Users authenticateUsers(String userName, String passWord);
+	public Users authenticateUsers(Credentials creds);
 	
 
 }

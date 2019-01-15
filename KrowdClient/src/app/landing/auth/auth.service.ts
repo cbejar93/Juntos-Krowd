@@ -11,13 +11,13 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   signUpUser(username: string, password: string) {
-    this.http.post('http://localhost:8080/Juntos-Krowd/login', { username, password }).subscribe((event) => console.log(event));
+    this.http.post('http://localhost:8080/Krowd/login', { username, password }).subscribe((event) => console.log(event));
 
   }
 
-  signInUser(username: string, password: string) {
+  signInUser(form) {
 
-    this.http.post('http://localhost:8080/Juntos-Krowd/login', { username, password })
+    this.http.post('http://localhost:8080/Krowd/login', form.value)
 
       .subscribe((event) =>
         this.router.navigate(['/home']));

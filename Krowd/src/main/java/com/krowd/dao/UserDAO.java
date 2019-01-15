@@ -17,6 +17,7 @@ public interface UserDAO {
 
 	public Users getUserById(int id); 
 	
-
+	public List<Users> getUsersByUserAndPass(String username, String password);
+	
 //	public void updateFollow(Users user, Users user2);
 }

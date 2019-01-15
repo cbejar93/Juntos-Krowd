@@ -21,8 +21,9 @@ public class Driver {
 	}
 	
 	static void testingUsers(SessionFactory sf) {
-		UserDAO cd = new UserDAOImpl();
+		UserDAO ud = new UserDAOImpl();
 		Session s = sf.getCurrentSession();
+		
 		
 		s.close();
 	}
