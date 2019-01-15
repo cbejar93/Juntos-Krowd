@@ -20,7 +20,13 @@ export class AppComponent {
   letsTryThis(){
 
     this.routeURL= this.router.url;
-    if(this.routeURL==="/"){
+    if(this.routeURL==="/landing"){
+      this.isNotLandingPage=false;
+    }
+    else if (this.routeURL==="/landing/signin"){
+      this.isNotLandingPage=false;
+    }
+    else if (this.routeURL==="/landing/signup"){
       this.isNotLandingPage=false;
     }
     else{
