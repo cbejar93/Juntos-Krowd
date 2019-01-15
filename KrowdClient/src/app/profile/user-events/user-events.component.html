@@ -1,10 +1,18 @@
 <div class="box-shadow">
-    <div id="events">
-        <div class="eventFromList card" *ngFor="let event of events">
+    <div id="events" class="row">
+        <!-- <div class="eventFromList card" *ngFor="let event of events">
           {{event.name}}
-        </div>
-        <div id="default" [hidden] = "null">
-          No events yet! Click the "Create" tab above to create a new event.
-        </div>
+        </div> -->
+        <div *ngFor="let event of eventList" class="card col-sm3">
+          <img class="card-img-top" src={{event.photo_url}} alt="Image">
+          <div class="card-body">
+            <h5 class="card-title">{{event.event_name}}</h5>
+            <p class="card-text">{{event.event_description}}</p>
+            <p class="card-text">Location: {{event.event_location}} </p>
+            <p class="card-text">Date: {{event.event_date}} </p>
+          </div>
+    </div>
+    <div id="default" [hidden] = "eventList">
+      No events yet! Click the "Create" tab above to create a new event.
     </div>
 </div>

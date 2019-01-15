@@ -11,7 +11,7 @@
                 <!-- creates a new row for each user comment, 
                 using the name of the event, the comment, and the event date-->
                 <tr *ngFor="let comment of commentsList" id="commentsList">
-                    <td> {{comment.event.event_id}} </td>
+                    <td> {{comment.event.event_name}} </td>
                     <td> {{comment.data}} </td>
                     <td> {{comment.created}} </td>
                 </tr>
