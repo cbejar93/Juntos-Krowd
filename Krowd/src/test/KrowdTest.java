@@ -62,7 +62,7 @@ public class KrowdTest {
 	System.out.println(mockedList.get(999));
 	
 	@RunWith(MockitoJUnitRunner.class)
-	public class NebjaTest {
+	public class KrowdTest {
 		@InjectMocks
 	UserDAOImpl userdaoi;
 	@Mock

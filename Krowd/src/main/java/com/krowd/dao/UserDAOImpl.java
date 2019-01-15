@@ -15,7 +15,6 @@ public class UserDAOImpl implements UserDAO {
 
 	private SessionFactory sf = HibernateUtil.getSessionFactory();
 
-	@Override
 	public List<Users> getAllUsers() {
 		List<Users> userList = new ArrayList<>();
 
