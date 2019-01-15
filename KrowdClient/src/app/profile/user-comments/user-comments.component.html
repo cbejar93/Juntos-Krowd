@@ -10,12 +10,12 @@
             <tbody>
                 <!-- creates a new row for each user comment, 
                 using the name of the event, the comment, and the event date-->
-                <tr *ngFor="let comment of comments">
-                    <td> event.event </td>
-                    <td> event.data </td>
-                    <td> event.date </td>
+                <tr *ngFor="let comment of commentsList" id="commentsList">
+                    <td> {{comment.event.event_id}} </td>
+                    <td> {{comment.data}} </td>
+                    <td> {{comment.created}} </td>
                 </tr>
-                <tr id="default" [hidden] = "null">
+                <tr id="default" [hidden] = "commentsList">
                     <td></td>
                     <td>No comments yet.</td>
                     <td></td>

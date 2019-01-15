@@ -19,7 +19,7 @@ export class EventCreatorComponent implements OnInit {
   }
 
   constructor(http: HttpClient, private dataService: DataServiceService) { }
-  onEventCreated(form: NgForm){
+  onEventCreated(form: NgForm){ 
     //code for adding the new event to the database
     console.log('Event Successfully Created');
     console.log(form);
@@ -33,7 +33,7 @@ export class EventCreatorComponent implements OnInit {
     this.eventCreated.emit({eventName: this.newEventName});
     console.log(newEvent);
     this.submitted = true;
-    // this.dataService.createNewEvent(newEvent);
+    this.dataService.createNewEvent(newEvent);
   }
 
 //code for image upload

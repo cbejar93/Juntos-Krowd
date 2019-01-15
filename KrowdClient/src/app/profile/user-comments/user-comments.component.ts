@@ -14,13 +14,22 @@ export class UserCommentsComponent implements OnInit {
     this.getCommentsByUserId();
   }
 
+  commentsList = [];
   getCommentsByUserId() {
     var userId = 16;
     this.dataService.getCommentsByUserId(userId) 
         .subscribe(
-          (response) => console.log(response),
-          (error) => console.log(error)
-        );
+          (comments)=> {
+            for (let comment of comments) {
+              console.log(comment)
+              this.commentsList.push(comment)
+              }
+            },
+          (error)=> console.log(error)
+          );
+          
+        console.log(this.commentsList);
+        return this.commentsList;
   }
 
 }
