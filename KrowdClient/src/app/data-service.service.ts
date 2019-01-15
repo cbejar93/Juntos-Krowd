@@ -15,7 +15,7 @@ export class DataServiceService {
   constructor(private httpClient: HttpClient) { }
 
   getAllEvents(){
-    return this.httpClient.get<Event []>("http://localhost:8080/Krowd/users/all")
+    return this.httpClient.get<Event []>("http://localhost:8080/Krowd/event/all")
       .map((events)=>{
         let eventData = events;
         return eventData;
@@ -73,7 +73,7 @@ export class DataServiceService {
   }
 
   getCommentsByUserId(userId: number) {
-    return this.httpClient.get<Comment []>(`http://localhost:8080/Krowd/comments/${userId}`)
+    return this.httpClient.get<Comment []>(`http://localhost:8080/Krowd/comment/user/${userId}`)
           .map((comments)=>{
             let commentData = comments;
             return commentData;

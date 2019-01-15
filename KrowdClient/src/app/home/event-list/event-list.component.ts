@@ -18,7 +18,14 @@ export class EventListComponent implements OnInit {
 
   getAllEvents() {
       console.log(this.dataService.getAllEvents());
-      return this.dataService.getAllEvents();
+      this.dataService.getAllEvents()
+        .subscribe(
+          (response)=> console.log(response),
+          (error)=> console.log(error)
+          );
+
   }
+
+
 
 }

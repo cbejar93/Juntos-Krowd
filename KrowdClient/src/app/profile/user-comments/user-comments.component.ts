@@ -15,7 +15,7 @@ export class UserCommentsComponent implements OnInit {
   }
 
   getCommentsByUserId() {
-    var userId = 2;
+    var userId = 16;
     this.dataService.getCommentsByUserId(userId) 
         .subscribe(
           (response) => console.log(response),
