@@ -16,11 +16,10 @@ export class SigninComponent implements OnInit {
   }
 
   onSignIn(form: NgForm): void {
-      console.log('hello')
       const username = form.value.username;
       const password = form.value.password;
-      this.auth.signInUser(username, password);
-      console.log(username);
+      this.auth.signInUser(form);
+      console.log(form);
   }
 
 }
