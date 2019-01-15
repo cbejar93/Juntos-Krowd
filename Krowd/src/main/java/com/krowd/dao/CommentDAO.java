@@ -6,10 +6,7 @@ import com.krowd.beans.Comments;
 
 public interface CommentDAO {
 	
-	static List<Comments> getAllComments() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<Comments> getAllComments();
 	public Comments getCommentById(int comment_Id);
 	List<Comments> getCommentsByUserId(int user_Id);
 	List<Comments> getCommentsByEventId(int event_Id);

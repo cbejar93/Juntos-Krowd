@@ -33,6 +33,20 @@ public class Events {
 		this.photo_url= photo_url;
 		this.created = created;
 	}
+	
+	public Events(String event_name, String event_location, String event_description, String event_type,
+			LocalDate event_date, int user_id, String photo_url, LocalDate created) {
+		super();
+		this.event_name = event_name;
+		this.event_location = event_location;
+		this.event_description = event_description;
+		this.event_type = event_type;
+		this.event_date = event_date;
+		this.user_id = user_id;
+		this.photo_url= photo_url;
+		this.created = created;
+	}
+	
 
 	@Id
 	@Column(name = "EVENT_ID")
