@@ -12,28 +12,38 @@ import { DataServiceService } from '../data-service.service';
 })
 export class EventCreatorComponent implements OnInit {
   submitted = false;
-  @Output() eventCreated = new EventEmitter<{eventName:string}>();
-  newEventName:string;
+ 
 
   ngOnInit() {
   }
 
   constructor(http: HttpClient, private dataService: DataServiceService) { }
-  onEventCreated(form: NgForm){
+  onEventCreated(form: NgForm){ 
     //code for adding the new event to the database
     console.log('Event Successfully Created');
     console.log(form);
     const value = form.value;
     console.log(form.value)
+
+    //for date 
+    var dateObj = new Date();
+    var month = dateObj.getUTCMonth() + 1; //months from 1-12
+    var day = dateObj.getUTCDate();
+    var year = dateObj.getUTCFullYear();
+    
+    let eventDateCreated = day + "/" + month + "/" + year;
+    console.log(eventDateCreated);
+
     const newEvent = new Event(null, value.eventName, 
       value.eventLocation, value.eventDescription, 
       value.eventCategory, value.eventDate, 
       null, this.imageURL, 
-      null, value.eventPeople);
+
+      eventDateCreated, value.eventPeople);
     this.eventCreated.emit({eventName: this.newEventName});
     console.log(newEvent);
     this.submitted = true;
-    // this.dataService.createNewEvent(newEvent);
+    this.dataService.createNewEvent(newEvent);
   }
 
 //code for image upload

@@ -15,7 +15,7 @@ export class DataServiceService {
   constructor(private httpClient: HttpClient) { }
 
   getAllEvents(){
-    return this.httpClient.get<Event []>("http://localhost:8080/Krowd/users/all")
+    return this.httpClient.get<Event []>("http://localhost:8080/Krowd/event/all")
       .map((events)=>{
         let eventData = events;
         return eventData;
@@ -54,7 +54,9 @@ export class DataServiceService {
   //everything below here needs to be modified
 
   createNewEvent (event: Event) {
-    return this.httpClient.post("http://localhost:8080/Juntos-Krowd/event/add", event);
+    console.log("new event sent to the database");
+    console.log(event);
+    return this.httpClient.post("http://localhost:8080/Krowd/event/add", event);
   }
 
   editUserInfo(userId: number) {
@@ -73,7 +75,7 @@ export class DataServiceService {
   }
 
   getCommentsByUserId(userId: number) {
-    return this.httpClient.get<Comment []>(`http://localhost:8080/Krowd/comments/${userId}`)
+    return this.httpClient.get<Comment []>(`http://localhost:8080/Krowd/comment/user/${userId}`)
           .map((comments)=>{
             let commentData = comments;
             return commentData;

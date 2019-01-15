@@ -4,8 +4,11 @@
 }
 
 .card {
-    padding: 20px;
     margin: 25px;
     width: 18rem;
+}
+
+.card-padding {
+    padding: 20px;
 }
 

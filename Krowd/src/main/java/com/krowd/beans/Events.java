@@ -14,14 +14,12 @@ import javax.persistence.Table;
 @Table(name = "EVENTS")
 public class Events {
 
-	
 	public Events() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Events(int event_id, String event_name, String event_location, String event_description, String event_type,
-			LocalDate event_date, int user_id, String photo_url, LocalDate created) {
+			LocalDate event_date, int user_id, String photo_url, LocalDate created, int eventGuests) {
 		super();
 		this.event_id = event_id;
 		this.event_name = event_name;
@@ -30,9 +28,26 @@ public class Events {
 		this.event_type = event_type;
 		this.event_date = event_date;
 		this.user_id = user_id;
-		this.photo_url= photo_url;
+		this.photo_url = photo_url;
 		this.created = created;
+		this.eventGuests = eventGuests;
 	}
+	
+	
+	public Events(String event_name, String event_location, String event_description, String event_type,
+			LocalDate event_date, int user_id, String photo_url, LocalDate created, int eventGuests) {
+		super();
+		this.event_name = event_name;
+		this.event_location = event_location;
+		this.event_description = event_description;
+		this.event_type = event_type;
+		this.event_date = event_date;
+		this.user_id = user_id;
+		this.photo_url = photo_url;
+		this.created = created;
+		this.eventGuests = eventGuests;
+	}
+	
 
 	@Id
 	@Column(name = "EVENT_ID")
@@ -53,6 +68,8 @@ public class Events {
 	private String photo_url;
 	@Column(name = "CREATED")
 	private LocalDate created;
+	@Column(name = "EVENTS_MAXGUESTS")
+	private int eventGuests;
 	
 	public int getEvent_id() {
 		return event_id;
@@ -114,7 +131,24 @@ public class Events {
 	public String toString() {
 		return "Events [event_id=" + event_id + ", event_name=" + event_name + ", event_location=" + event_location
 				+ ", event_description=" + event_description + ", event_type=" + event_type + ", event_date="
-				+ event_date + ", user_id=" + user_id + ", photo_url=" + photo_url + ", created=" + created + "]";
+				+ event_date + ", user_id=" + user_id + ", photo_url=" + photo_url + ", created=" + created
+				+ ", eventGuests=" + eventGuests + "]";
+	}
+
+	public String getPhoto_url() {
+		return photo_url;
+	}
+
+	public void setPhoto_url(String photo_url) {
+		this.photo_url = photo_url;
+	}
+
+	public int getEventGuests() {
+		return eventGuests;
+	}
+
+	public void setEventGuests(int eventGuests) {
+		this.eventGuests = eventGuests;
 	}
 	
 	

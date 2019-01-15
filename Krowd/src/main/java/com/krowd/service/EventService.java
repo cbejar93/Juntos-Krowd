@@ -12,7 +12,8 @@ public interface EventService {
 	public void createEvent(Events event);
 	public void updateEvents(Events event);
 	public void deleteEvents(Events event);
-	public Events getEventById(int id); 
+	public Events getEventById(int id);
+	public Events getEventByUserId(int userid);
 
 //	public void updateFollow(Events event, Events event2);
 }
