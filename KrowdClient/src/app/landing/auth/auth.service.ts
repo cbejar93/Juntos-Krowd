@@ -19,8 +19,14 @@ export class AuthService {
 
     this.http.post('http://localhost:8080/Krowd/login/sent', {"username": username, "password": password})
 
-      .subscribe((event) =>
-        this.router.navigate(['/home']));
+      .map((user)=>{
+        this.router.navigate(['/home']);
+
+        console.log(user);
+      })
+
+        // console.log(event);
+      
 
       
 
@@ -28,10 +34,14 @@ export class AuthService {
 
   isAuthenticated() {
     // return this.user != null;
+
     return false;
   }
 
   logOut() {
 
+    
+
   }
+  // .subscribe((event)=> this.router.navigate([/home]))
 }
