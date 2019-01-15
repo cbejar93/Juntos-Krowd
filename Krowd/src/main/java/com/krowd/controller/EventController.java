@@ -43,6 +43,18 @@ public class EventController {
 		
 	}
 	
+	@GetMapping(value="/{userid}")
+	@ResponseBody
+	public ResponseEntity<Events> getEventByUserId(@PathVariable int userid) {
+		Events u = eventService.getEventById(userid);
+		if (u == null) {
+			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<>(u, HttpStatus.OK);
+		}
+		
+	}
+	
 	@PostMapping(value="/add")
 	@ResponseBody
 	public ResponseEntity<String> createEvent(@RequestBody Events event){

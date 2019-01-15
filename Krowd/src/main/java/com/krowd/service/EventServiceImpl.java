@@ -38,6 +38,11 @@ public class EventServiceImpl implements EventService {
 		return ud.getEventById(id);
 	}
 
+	@Override
+	public Events getEventByUserId(int userid) {
+		return ud.getEventByUserId(userid);
+	}
+
 //	@Override
 //	public void updateFollow(Events event, Events event2) {
 //		// TODO
