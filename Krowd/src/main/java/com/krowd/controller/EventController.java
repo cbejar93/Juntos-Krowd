@@ -59,6 +59,7 @@ public class EventController {
 	@ResponseBody
 	public ResponseEntity<String> createEvent(@RequestBody Events event){
 		ResponseEntity<String> resp = null;
+		System.out.println(event);
 		try {
 			eventService.createEvent(event);
 			resp = new ResponseEntity<>("Event Created!", HttpStatus.OK);

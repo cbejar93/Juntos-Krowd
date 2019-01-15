@@ -7,10 +7,7 @@ import com.krowd.beans.Users;
 public interface UserDAO {
 
 	//Success
-	public static List<Users> getAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<Users> getAllUsers();
 	
 	public void addUser(Users user);
 
