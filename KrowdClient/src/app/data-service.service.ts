@@ -15,7 +15,7 @@ export class DataServiceService {
   constructor(private httpClient: HttpClient) { }
 
   getAllEvents(){
-    return this.httpClient.get<Event []>("http://localhost:7001/Juntos-Krowd/users/all")
+    return this.httpClient.get<Event []>("http://localhost:8080/Krowd/event/all")
       .map((events)=>{
         let eventData = events;
         return eventData;
@@ -27,7 +27,7 @@ export class DataServiceService {
   }
 
   getEventbyId(id:number){
-        return this.httpClient.get<Event>(`http://localhost:7001/Juntos-Krowd/events/${id}`)
+        return this.httpClient.get<Event>(`http://localhost:8080/Krowd/events/${id}`)
           .map((event)=>
           {return event;}
               
@@ -39,7 +39,7 @@ export class DataServiceService {
 
   getAllUsers (){
 
-   return this.httpClient.get<UserModelService []>("http://localhost:7001/Juntos-Krowd/users/all")
+   return this.httpClient.get<UserModelService []>("http://localhost:8080/Krowd/users/all")
       .map(
           (users)=>{
             let usersData = users;
@@ -53,16 +53,16 @@ export class DataServiceService {
 
   //everything below here needs to be modified
 
-  createNewEvent (Event: any) {
-    return this.httpClient.post("localhost:7001/Juntos-Krowd/event/add", Event);
+  createNewEvent (event: Event) {
+    return this.httpClient.post("http://localhost:8080/Krowd/event/add", event);
   }
 
   editUserInfo(userId: number) {
-    return this.httpClient.put("localhost:7001/Juntos-Krowd/users/all", userId)
+    return this.httpClient.put("http://localhost:8080/Krowd/users/all", userId)
   }
 
   getEventsByUserId(userId: number) {
-    return this.httpClient.get<Event []>(`http://localhost:7001/Juntos-Krowd/events/${userId}`)
+    return this.httpClient.get<Event []>(`http://localhost:8080/Krowd/events/${userId}`)
           .map((events)=>{
             let eventData = events;
             return eventData;
@@ -73,7 +73,7 @@ export class DataServiceService {
   }
 
   getCommentsByUserId(userId: number) {
-    return this.httpClient.get<Comment []>(`http://localhost:7001/Juntos-Krowd/comments/${userId}`)
+    return this.httpClient.get<Comment []>(`http://localhost:8080/Krowd/comment/user/${userId}`)
           .map((comments)=>{
             let commentData = comments;
             return commentData;

@@ -3,10 +3,11 @@ package com.krowd.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
+import org.hibernate.criterion.Restrictions;
 
 import com.krowd.beans.Users;
 import com.krowd.util.HibernateUtil;
@@ -35,7 +36,7 @@ public class UserDAOImpl implements UserDAO {
 	public void addUser(Users user) {
 		try (Session s = sf.getCurrentSession()) {
 			Transaction tx = s.beginTransaction();
-			
+
 //			changed from persist to save(will research) - would throw, detached to persistent state exception
 			s.persist(user);
 			tx.commit();
@@ -76,7 +77,18 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 
-	
+	public List<Users> getUsersByUserAndPass(String username, String password){
+		List<Users> user = new ArrayList<>();
+		try (Session s = sf.getCurrentSession()){
+			Transaction tx = s.beginTransaction();
+			user = s.createQuery("from Users where USERNAME = " + username + " and PASSWORD = " + password).getResultList();
+			
+			tx.commit();
+			s.close();
+		}
+		return user;
+	}
+
 
 //	@Override
 //	public void updateFollow(Users user, Users user2) {

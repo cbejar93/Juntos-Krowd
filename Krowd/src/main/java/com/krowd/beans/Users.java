@@ -35,6 +35,12 @@ public Users(String firstname, String lastname, String username, String email, S
 	this.password = password;
 }
 
+public Users(String username, String password) {
+	super();
+	this.username = username;
+	this.password = password;
+}
+
 public Users() {
 		super();
 		// TODO Auto-generated constructor stub
