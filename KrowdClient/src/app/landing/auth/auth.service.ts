@@ -15,12 +15,14 @@ export class AuthService {
 
   }
 
-  signInUser(form) {
+  signInUser(username, password) {
 
-    this.http.post('http://localhost:8080/Krowd/login', form.value)
+    this.http.post('http://localhost:8080/Krowd/login/sent', {"username": username, "password": password})
 
       .subscribe((event) =>
         this.router.navigate(['/home']));
+
+      
 
   }
 
