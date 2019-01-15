@@ -14,11 +14,17 @@ export class UserEventsComponent implements OnInit {
     this.getEventsByUserId();
   }
 
+  eventList = [];
   getEventsByUserId() {
-    var userId = 2;
+    var userId = 16;
     this.dataService.getEventsByUserId(userId)
       .subscribe(
-        (response) => console.log(response),
+        (events)=> {
+          for (let event of events) {
+            console.log(event)
+            this.eventList.push(event)
+          }
+        },
         (error) => console.log(error)
       );
   }

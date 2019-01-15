@@ -27,19 +27,21 @@ export class EventCreatorComponent implements OnInit {
 
     //for date 
     var dateObj = new Date();
-    var month = dateObj.getUTCMonth() + 1; //months from 1-12
-    var day = dateObj.getUTCDate();
-    var year = dateObj.getUTCFullYear();
+    // var month = dateObj.getUTCMonth() + 1; //months from 1-12
+    // var day = dateObj.getUTCDate();
+    // var year = dateObj.getUTCFullYear();
 
-    let eventDateCreated = day + "/" + month + "/" + year;
-    console.log(eventDateCreated);
+    // let eventDateCreated = day + "/" + month + "/" + year;
+    // console.log(eventDateCreated);
+
+    // var eventDateString: String = value.eventDate.stringify();
 
     const newEvent = new Event(null, value.eventName,
       value.eventLocation, value.eventDescription,
-      value.eventCategory, value.eventDate,
+      value.eventCategory, null,
       null, this.imageURL,
 
-      eventDateCreated, value.eventPeople);
+      null, value.eventPeople);
 
     console.log(newEvent);
     this.submitted = true;

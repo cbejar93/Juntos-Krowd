@@ -1,11 +1,11 @@
 #cardContainer {
-    width: 80%;
+    width: 95%;
     margin: auto;
 }
 
 .card {
     margin: 25px;
-    width: 18rem;
+    width: 17rem;
 }
 
 .card-padding {

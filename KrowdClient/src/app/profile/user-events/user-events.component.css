@@ -16,3 +16,12 @@
     text-align: center;
     padding: 20px;
 }
+
+.card {
+    margin: 25px;
+    width: 17rem;
+}
+
+.card-padding {
+    padding: 20px;
+}
