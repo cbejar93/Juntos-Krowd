@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataServiceService } from 'src/app/data-service.service';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
   selector: 'app-event-list',
@@ -16,14 +17,22 @@ export class EventListComponent implements OnInit {
     this.getAllEvents();
   }
 
+  eventList2 = [];
   getAllEvents() {
       console.log(this.dataService.getAllEvents());
       this.dataService.getAllEvents()
         .subscribe(
-          (response)=> console.log(response),
+          (events)=> {
+            for (let event of events) {
+              console.log(event)
+              this.eventList2.push(event)
+              }
+            },
           (error)=> console.log(error)
           );
 
+        console.log(this.eventList2);
+        return this.eventList2;
   }
 
 

@@ -54,7 +54,7 @@ export class DataServiceService {
   //everything below here needs to be modified
 
   createNewEvent (event: Event) {
-    return this.httpClient.post("http://localhost:8080/Juntos-Krowd/event/add", event);
+    return this.httpClient.post("http://localhost:8080/Krowd/event/add", event);
   }
 
   editUserInfo(userId: number) {
