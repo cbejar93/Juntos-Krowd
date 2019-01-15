@@ -88,12 +88,11 @@ insert into USERS (USER_ID, FIRSTNAME, LASTNAME, USERNAME, EMAIL, TOKEN_SCORE, P
 insert into USERS (USER_ID, FIRSTNAME, LASTNAME, USERNAME, EMAIL, TOKEN_SCORE, PASSWORD, PHOTO_URL) values (12, 'Catharine', 'Whybrow', 'cwhybrowb', 'cwhybrowb@google.com', 7, 'zs1JGZQ6', null);
 insert into USERS (USER_ID, FIRSTNAME, LASTNAME, USERNAME, EMAIL, TOKEN_SCORE, PASSWORD, PHOTO_URL) values (13, 'Guinevere', 'Pickard', 'gpickardc', 'gpickardc@zimbio.com', 3, '0AGuJTW6A', null);
 insert into USERS (USER_ID, FIRSTNAME, LASTNAME, USERNAME, EMAIL, TOKEN_SCORE, PASSWORD, PHOTO_URL) values (14, 'Terrence', 'Vannacci', 'tvannaccid', 'tvannaccid@businesswire.com', 1, 'wMqfswh', null);
+insert into USERS (USER_ID, FIRSTNAME, LASTNAME, USERNAME, EMAIL, TOKEN_SCORE, PASSWORD, PHOTO_URL) values (16, 'Terrence', 'Vannacci', 'tvannaccid', 'tvannaccid@businesswire.com', 1, 'wMqfswh', null);
 
 COMMIT;
 
 -- EVENTS FILL FOR TESTIN
-insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, PHOTO_ID, CREATED) values (1, null, '7 Moland Way', null, null, TO_DATE ('2018-02-05 19:45:20','yyyy-mm-dd hh24:mi:ss'), 1, null, TO_DATE ('2018-02-05 19:45:20','yyyy-mm-dd hh24:mi:ss'));
-
 -- COMMENTS FILL FOR TESTING
 insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (1, null, 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
 
@@ -167,6 +166,8 @@ COMMIT;
 ALTER TABLE EVENTS
 DROP COLUMN PHOTO_ID;
 
+insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (1, null, '9430 Elgar Street', null, null,TO_DATE ('2018-02-18 00:52:40','yyyy-mm-dd hh24:mi:ss'), 15,TO_DATE('2018-01-21 01:27:17','yyyy-mm-dd hh24:mi:ss'), null);
+
 insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (2, null, '9430 Elgar Street', null, null,TO_DATE ('2018-02-18 00:52:40','yyyy-mm-dd hh24:mi:ss'), 16,TO_DATE('2018-01-21 01:27:17','yyyy-mm-dd hh24:mi:ss'), null);
 insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (3, null, '990 Carioca Lane', null, null,TO_DATE ('2018-06-27 08:04:45','yyyy-mm-dd hh24:mi:ss'), 17, TO_DATE('2018-03-04 10:59:11','yyyy-mm-dd hh24:mi:ss'), null);
 insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (4, null, '620 Mifflin Lane', null, null, TO_DATE('2018-10-21 01:54:33','yyyy-mm-dd hh24:mi:ss'), 18, TO_DATE('2018-11-17 02:20:23','yyyy-mm-dd hh24:mi:ss'), null);
@@ -186,6 +187,7 @@ insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVE
 insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (18, null, '5589 Raven Street', null, null, TO_DATE('2018-03-09 05:36:19','yyyy-mm-dd hh24:mi:ss'), 32, TO_DATE('2018-03-13 21:46:41','yyyy-mm-dd hh24:mi:ss'), null);
 insert into EVENTS (EVENT_ID, EVENT_NAME, EVENT_LOCATION, EVENT_DESCRIPTION, EVENT_TYPE, EVENT_DATE, USER_ID, CREATED, PHOTO_URL) values (19, null, '4 Old Gate Pass', null, null, TO_DATE('2018-09-11 19:01:24','yyyy-mm-dd hh24:mi:ss'), 33, TO_DATE('2018-10-20 23:46:43','yyyy-mm-dd hh24:mi:ss'), null);
 
+COMMIT;
 
 insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (3, 'Best Event Ever', 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
 insert into COMMENTS (COMMENT_ID, DATA , EVENT_ID, CREATED, USER_ID) values (4, 'Ive Never Been TO Better', 1, TO_DATE ('2018-06-09 13:40:32','yyyy-mm-dd hh24:mi:ss'), 16);
