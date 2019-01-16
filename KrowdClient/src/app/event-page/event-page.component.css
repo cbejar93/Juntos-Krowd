@@ -5,3 +5,110 @@
     background-position: center;
     height: 300px;
 }
+
+.eventpic {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    top: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+
+}
+
+.pagetitle {
+    font-size: 50px;
+}
+
+.subtitle {
+    font-size: 20px;
+}
+
+.centerize {
+    text-align: center;
+    margin: auto;
+}
+
+.pageborder {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+#maindiv {
+    width: 90%;
+    margin: auto;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    margin-bottom: 5%
+}
+
+#maincommentdiv {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 5%
+}
+
+#eventdiv {
+    margin: 20px auto;
+    width: 70%;
+    
+}
+
+#userdiv {
+    margin: 20px auto;
+    width: 26%;
+}
+
+.boxspace {
+    padding: 20px;
+    margin: auto;
+}
+
+.button-center {
+    float:left;
+    position:bottom;
+    width: 120%;
+}
+
+.row {
+    width: 90%;
+    margin: auto;
+}
+
+.col {
+    margin-left: 100px;
+}
+
+.commentdiv {
+    padding: 7px;
+    margin: 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    width: auto;
+}
+
+.commentpic {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    margin: auto;
+    padding-right: 14px;
+}
+
+#comment-body {
+    padding-left: 14px;
+}
+
+#comment-metadata {
+    font-size: 10px;
+    color: rgb(145, 137, 137);
+    text-align: center;
+    margin: auto;
+}
