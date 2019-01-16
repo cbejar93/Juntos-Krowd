@@ -27,6 +27,15 @@ public Users(String firstname, String lastname, String username, String email, i
 		this.photo_url = photo_url;
 	}
 
+
+public Users(String username, String password, String fID) {
+	super();
+	this.username = username;
+	this.password = password;
+	this.fID = fID;
+}
+
+
 public Users(String firstname, String lastname, String username, String email, String password) {
 	super();
 	this.firstname = firstname;
@@ -73,7 +82,6 @@ public Users(int userid, String firstname, String lastname, String username, Str
 @Id
 @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="userSequence")
 @SequenceGenerator(allocationSize=1, name="userSequence", sequenceName="SQ_Users_PK")
-
 @Column(name="USER_ID")
 private int userid;
 
@@ -97,6 +105,9 @@ private String password;
 
 @Column(name="photo_url")
 private String photo_url;
+
+@Column(name="fID")
+private String fID;
 
 
 public String getPhoto_url() {
