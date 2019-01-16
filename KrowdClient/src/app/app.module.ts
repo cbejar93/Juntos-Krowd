@@ -50,9 +50,9 @@ const appRoutes: Routes = [
   ]
   
   },
-  {path:'event/:id/:photo/:name/:description/:location/:date/:user_id', component: EventPageComponent},
+  {path:'events/:id', component: EventPageComponent},
   {path: 'not-found', component: PageNotFoundComponent},
-  {path: '**', redirectTo: '/not-found'}
+  // {path: '**', redirectTo: '/not-found'}
 
 ]
 
