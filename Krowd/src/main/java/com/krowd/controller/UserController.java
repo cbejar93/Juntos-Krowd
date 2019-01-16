@@ -60,6 +60,19 @@ public class UserController {
 		return resp;
 	}
 	
+	@PostMapping(value="/update")
+	@ResponseBody
+	public ResponseEntity<String> updateUser(@RequestBody Users user){
+		ResponseEntity<String> resp = null;
+		try {
+			userService.updateUsers(user);
+			resp = new ResponseEntity<>("User Updated!", HttpStatus.OK);
+		} catch (Exception e) {
+			resp = new ResponseEntity<>("User Not Updated, Try Again", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
+	}
+	
 	
 	
 }

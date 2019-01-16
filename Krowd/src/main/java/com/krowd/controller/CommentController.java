@@ -82,14 +82,14 @@ public class CommentController {
 	
 	@PostMapping(value="/update")
 	@ResponseBody
-	public ResponseEntity<String> updateomment(@RequestBody Comments comment){
+	public ResponseEntity<String> updatecomment(@RequestBody Comments comment){
 		ResponseEntity<String> resp = null;
 		try {
 			commentService.updateComment(comment);
 			resp = new ResponseEntity<>("comment updated!", HttpStatus.OK);
 			
 		} catch (Exception e) {
-			resp = new ResponseEntity<>("No comment Created, Try Again", HttpStatus.BAD_REQUEST);
+			resp = new ResponseEntity<>("Comment Not Updated, Try Again", HttpStatus.BAD_REQUEST);
 		}
 		return resp;
 	}

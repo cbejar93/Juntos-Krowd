@@ -1,12 +1,13 @@
 package com.krowd.beans;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -72,6 +73,7 @@ public Users(int userid, String firstname, String lastname, String username, Str
 @Id
 @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="userSequence")
 @SequenceGenerator(allocationSize=1, name="userSequence", sequenceName="SQ_Users_PK")
+
 @Column(name="USER_ID")
 private int userid;
 

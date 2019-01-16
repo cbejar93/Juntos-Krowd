@@ -3,7 +3,6 @@ package com.krowd.service;
 import java.util.List;
 
 import com.krowd.beans.Comments;
-import com.krowd.beans.Users;
 
 public interface CommentService {
 	

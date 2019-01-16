@@ -3,8 +3,6 @@ package com.krowd.service;
 import java.util.List;
 
 import com.krowd.beans.Events;
-import com.krowd.dao.EventDAO;
-import com.krowd.dao.EventDAOImpl;
 
 public interface EventService {
 	
