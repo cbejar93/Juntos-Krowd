@@ -3,8 +3,6 @@ package com.krowd.service;
 import java.util.List;
 
 import com.krowd.beans.Users;
-import com.krowd.dao.UserDAO;
-import com.krowd.dao.UserDAOImpl;
 
 public interface UserService {
 	

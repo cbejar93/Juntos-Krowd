@@ -3,11 +3,9 @@ package com.krowd.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
 
 import com.krowd.beans.Users;
 import com.krowd.util.HibernateUtil;
