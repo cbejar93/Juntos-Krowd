@@ -27,6 +27,7 @@ import { SignupComponent } from './landing/auth/signup/signup.component';
 import { AuthGuardService } from './landing/auth/auth-guard.service';
 import { AuthService } from './landing/auth/auth.service';
 import { UserModelService } from './user-model.service';
+import { EventPageComponent } from './event-page/event-page.component';
 
 
 
@@ -49,9 +50,9 @@ const appRoutes: Routes = [
   ]
   
   },
-  {path:'event/:id/:description/:name/:address', component: EditEventComponent, canActivate:[AuthGuardService]},
+  {path:'events/:id', component: EventPageComponent},
   {path: 'not-found', component: PageNotFoundComponent},
-  {path: '**', redirectTo: '/not-found'}
+  // {path: '**', redirectTo: '/not-found'}
 
 ]
 
@@ -72,7 +73,8 @@ const appRoutes: Routes = [
     EditProfileComponent,
     UserEventsComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    EventPageComponent
     
 
   ],

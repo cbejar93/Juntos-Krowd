@@ -13,7 +13,7 @@
                 <tr *ngFor="let comment of commentsList" id="commentsList">
                     <td> {{comment.event.event_name}} </td>
                     <td> {{comment.data}} </td>
-                    <td> {{comment.created}} </td>
+                    <td> {{comment.created | date }} </td>
                 </tr>
                 <tr id="default" [hidden] = "commentsList">
                     <td></td>
