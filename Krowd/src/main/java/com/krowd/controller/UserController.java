@@ -52,7 +52,8 @@ public class UserController {
 		ResponseEntity<String> resp = null;
 		try {
 			userService.addUser(user);
-			resp = new ResponseEntity<>("User Created!", HttpStatus.OK);
+			resp = new ResponseEntity<>("", HttpStatus.OK);
+			System.out.println(user);
 			
 		} catch (Exception e) {
 			resp = new ResponseEntity<>("No User Created, Try Again", HttpStatus.BAD_REQUEST);

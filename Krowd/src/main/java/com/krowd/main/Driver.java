@@ -14,7 +14,7 @@ public class Driver {
 	public static void main(String[] args) {
 
 		SessionFactory sf = HibernateUtil.getSessionFactory();
-//		testingUsers(sf); // pretty self explanatory
+		testingUsers(sf); // pretty self explanatory
 	}
 	static void testingUsers(SessionFactory sf) {
 		UserDAO ud = new UserDAOImpl();
