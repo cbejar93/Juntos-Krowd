@@ -54,9 +54,6 @@ export class DataServiceService {
       }))
   }
 
-  //everything below here needs to be modified
-
-
   createNewEvent (event: Event) {
 
     console.log("new event sent to the database");
@@ -70,6 +67,19 @@ export class DataServiceService {
         console.log(res)
       )
   }
+
+  getCommentsByUserId(userId: number) {
+    return this.httpClient.get<Comment[]>(`http://localhost:8080/Krowd/comment/user/${userId}`)
+      .map((comments) => {
+        let commentData = comments;
+        return commentData;
+      })
+      .pipe(catchError(error => {
+        return throwError(error);
+      }))
+  }
+
+  //everything below here needs to be modified
 
   editUserInfo(userId: number) {
     return this.httpClient.put("http://localhost:8080/Krowd/user/all", userId)
@@ -87,8 +97,12 @@ export class DataServiceService {
       }))
   }
 
-  getCommentsByUserId(userId: number) {
-    return this.httpClient.get<Comment[]>(`http://localhost:8080/Krowd/comment/user/${userId}`)
+  registerForEvent(eventId: number, userId: number) {
+    return this.httpClient.post("", eventId)
+  }
+
+  getCommentsByEventId(id: number) {
+    return this.httpClient.get<Comment[]>(`http://localhost.8080/Krowd/event/${id}`)
       .map((comments) => {
         let commentData = comments;
         return commentData;
@@ -98,3 +112,5 @@ export class DataServiceService {
       }))
   }
 }
+
+  
