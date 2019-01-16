@@ -27,7 +27,15 @@ export class EventPageComponent implements OnInit {
 
     this.dataService.getEventbyId(this.event.id)
       .subscribe(
-        (data) => console.log(data)
+        (data) => this.event = {
+          id: data.event_id,
+          photo: data.photo_url,
+          name: data.event_name,
+          description: data.event_description,
+          location: data.event_location,
+          date: data.event_date,
+          user_id: data.user_id
+        }
       )
   }
 
