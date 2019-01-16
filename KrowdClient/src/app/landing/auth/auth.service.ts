@@ -17,20 +17,19 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  signUpUserFireBase(email: string, password: string, username: string){
+  signUpUserFireBase(email: string, password: string, username: string) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(res=>{this.router.navigate(['/landing/signin']);
+        .then(res => {this.router.navigate(['/landing/signin']);
         console.log(res.user.uid);
         let firedID: string = res.user.uid;
-        this.signUpUser(username,email, password, firedID)
+        this.signUpUser(username, email, password, firedID);
   })
-        .catch(error=> console.log(error))
+        .catch(error => console.log(error));
   }
 
-  
-
   signUpUser(username: string, email:string, password: string, fireID: string) {
-    this.http.post('http://localhost:8080/Krowd/login', { username, email, password, fireID }).subscribe((event) => console.log(event));
+    console.log(fireID);
+    this.http.post('http://localhost:8080/Krowd/user/add', { 'username':username,'password': password, 'email': email,'fID': fireID }).subscribe((event) => console.log(event));
 
   }
 
