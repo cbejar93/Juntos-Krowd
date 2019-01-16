@@ -16,9 +16,11 @@ export class SigninComponent implements OnInit {
   }
 
   onSignIn(form: NgForm): void {
-    const username = form.value.username;
+    const email = form.value.email;
     const password = form.value.password;
-    this.auth.signInUser(username, password);
+    const username = form.value.username;
+    this.auth.signInUserFirebase(email, password, username);
+    // this.auth.signInUser(email, password);
     console.log(form);
   }
 
