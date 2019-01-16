@@ -7,13 +7,13 @@
                         <div class="row box-shadow">
 
                           <!-- The profile picture -->
-                            <img class="lib-img-show" src="https://static.licdn.com/scds/common/u/images/themes/katy/ghosts/person/ghost_person_200x200_v1.png">
+                            <img class="lib-img-show" src={{user.photo}}>
 
                           <!-- The user's name and profile information -->
                             <div class="col-7">
                               <br>
                                 <div class="lib-row lib-header">
-                                    John Doe 
+                                    <p> {{user.firstname}} {{user.lastname}} </p>
                                     <div class="lib-header-seperator"></div>
                                 </div>  
                                 <div> 
@@ -42,9 +42,7 @@
                                         <div style="width: 10rem;">
                                             <div class="card-body">
                                               <h5 class="card-title">Tokens</h5>
-                                              <p class="card-text">{{Tokens}}</p>
-                                              <!-- delete after interpolation implemented-->
-                                              <p class="card-text">35</p>
+                                              <p class="card-text">{{user.tokenscore}}</p>
                                             </div>
                                           </div>
                                     </div>

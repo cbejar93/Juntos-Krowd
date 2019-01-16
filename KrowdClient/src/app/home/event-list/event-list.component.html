@@ -1,10 +1,8 @@
 <!-- created a container to hold all event cards-->
 <div id="cardContainer">
     <div class="row">
-  
       <!-- col-sm3 specifies 3 columns in the container -->
       <div *ngFor="let event of eventList2" class="card col-sm3">
-        <!-- <a routerLink="/events/{{event.event.id}}/{{event.photo_url}}/{{event.event_name}}/{{event.event_description}}/{{event.event_location}}/{{event.event_date}}/{{event.event.user_id}}"> -->
         <img class="card-img-top" src={{event.photo_url}} alt="Image">
         <div class="card-body">
           <h5 class="card-title">{{event.event_name}}</h5>
@@ -14,7 +12,6 @@
           <!-- href TBD for now -->
         </div>
         <a routerLink="/events/{{event.event_id}}" class="btn btn-success button-center">Register</a>
-        <!-- </a> -->
       </div>
     </div>
 </div>
