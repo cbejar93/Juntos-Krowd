@@ -101,8 +101,8 @@ export class DataServiceService {
     return this.httpClient.post("", eventId)
   }
 
-  getCommentsByEventId(id: number) {
-    return this.httpClient.get<Comment[]>(`http://localhost.8080/Krowd/event/${id}`)
+  getCommentsByEventId(eventId: number) {
+    return this.httpClient.get<Comment[]>(`http://localhost:8080/Krowd/comment/event/${eventId}`)
       .map((comments) => {
         let commentData = comments;
         return commentData;

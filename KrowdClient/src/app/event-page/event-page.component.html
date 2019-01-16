@@ -15,35 +15,48 @@
       &nbsp; &nbsp;
     <div class="boxspace" id="userdiv">
         <h2 class="centerize">Attendees</h2>
+        <div [hidden] = "!commentsList.length == 0">
+            <br>
+            <p class="centerize">No attendees yet.  Why not be the first to attend?</p>
+            <br>
+        </div>
+        <br>
+
   </div>
   <button class="btn btn-success button-center">Register</button>
   <br>
   </div>
   <div id="maincommentdiv">
       <h4 class="centerize">Comments</h4>
-      <div class="row commentdiv col-12">
+
+      <!-- comment outline-->
+      <div *ngFor="let comment of commentsList" class="row commentdiv col-12">
         <div id="UserInfo" class="col-2">
-            <img src={{user.photo}} class="commentpic centerize">  
+           <!--<img src={{user.photo}} class="commentpic centerize">  -->
         </div>
         <div id="comment-body" class="col-10">
-          <p>Lorem ipsum dolor amet artisan unicorn chartreuse four dollar toast vexillologist authentic swag trust fund leggings typewriter small batch cray austin health goth flannel. Pork belly authentic polaroid kombucha mustache pop-up cloud bread. Salvia narwhal activated charcoal vexillologist, helvetica trust fund edison bulb shabby chic brunch kickstarter knausgaard VHS chambray. Listicle tote bag cliche af flexitarian art party roof party cray knausgaard humblebrag XOXO church-key meditation chillwave post-ironic. Retro venmo 90's intelligentsia, master cleanse kitsch bicycle rights raclette kickstarter. Beard venmo pork belly trust fund la croix quinoa poutine marfa raclette hammock tumblr raw denim organic.</p>
+          <em>"{{comment.data}}"</em>
           <span id="comment-metadata">
-            <p>User: Example User &nbsp; &nbsp; Date: 4-20-666</p>
+            <p>User: {{comment.user_id}} &nbsp; &nbsp; {{comment.created | date}}</p>
           </span>
         </div>
       </div>
+      <div [hidden] = "!commentsList.length == 0">
+        <br>
+        <p class="centerize">No comments yet.  So why not post the first comment?</p>
+        <br>
+      </div>
 
-        <div class="row commentdiv col-12">
-          <div id="UserInfo" class="col-2">
-            <img>
-          </div>
-          <div id="comment-body" class="col-10">
-            <p>Lorem ipsum dolor amet artisan unicorn chartreuse four dollar toast vexillologist authentic swag trust fund leggings typewriter small batch cray austin health goth flannel. Pork belly authentic polaroid kombucha mustache pop-up cloud bread. Salvia narwhal activated charcoal vexillologist, helvetica trust fund edison bulb shabby chic brunch kickstarter knausgaard VHS chambray. Listicle tote bag cliche af flexitarian art party roof party cray knausgaard humblebrag XOXO church-key meditation chillwave post-ironic. Retro venmo 90's intelligentsia, master cleanse kitsch bicycle rights raclette kickstarter. Beard venmo pork belly trust fund la croix quinoa poutine marfa raclette hammock tumblr raw denim organic.</p>
-          </div>
-        </div>
+      <button [hidden]="toggle" (click)="ontoggle()" class="comment-button-center btn btn-outline-success">Post a Comment</button>
+      
+      <form [hidden]="!toggle">
+        <div class="row comment-button">
+        <input type="text" class="col-9"> 
+        &nbsp;
+        <input type="submit" class="btn btn-outline-success col-2" value="Submit">
+      </div>
+      </form>
+
   </div>
-  <!-- <div class="row"> -->
-    
-  <!-- </div> -->
 
 </div>
