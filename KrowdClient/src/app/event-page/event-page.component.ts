@@ -12,6 +12,7 @@ export class EventPageComponent implements OnInit {
   
   constructor(private route: ActivatedRoute, private dataService: DataServiceService) { }
 
+  commentsList = [];
   ngOnInit() {
     this.event ={
       id: this.route.snapshot.params['id'],
@@ -37,6 +38,20 @@ export class EventPageComponent implements OnInit {
           user_id: data.user_id
         }
       )
-  }
 
+      this.dataService.getCommentsByEventId(this.event.id)
+        .subscribe(
+          (comments)=> {
+            for (let comment of comments) {
+              console.log(comment)
+              this.commentsList.push(comment)
+              }
+            },
+          (error)=> console.log(error)
+          );
+          
+        console.log(this.commentsList);
+        return this.commentsList;
+  }
 }
+
