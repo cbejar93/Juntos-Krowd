@@ -16,6 +16,10 @@ import com.krowd.service.AuthenticationServiceImpl;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	AuthenticationServiceImpl authServImp = new AuthenticationServiceImpl();
 	
 	//Return the Login page for the Get request that is sent

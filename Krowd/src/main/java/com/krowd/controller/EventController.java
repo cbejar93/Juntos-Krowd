@@ -73,4 +73,34 @@ public class EventController {
 		return resp;
 	}
 	
+	@PostMapping(value="/update")
+	@ResponseBody
+	public ResponseEntity<String> updateEvent(@RequestBody Events event){
+		ResponseEntity<String> resp = null;
+		try {
+			eventService.updateEvents(event);
+			resp = new ResponseEntity<>("Event Updated!", HttpStatus.OK);
+		} catch (Exception e) {
+			resp = new ResponseEntity<>("Event Not Updated, Try Again", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
+	}
+	
+	@PostMapping(value="/delete")
+	@ResponseBody
+	public ResponseEntity<String> deleteEvent(@RequestBody Events event){
+		ResponseEntity<String> resp = null;
+		try {
+			eventService.deleteEvents(event);
+			resp = new ResponseEntity<>("Event Deleted!", HttpStatus.OK);
+		} catch (Exception e) {
+			resp = new ResponseEntity<>("Event Not Deleted, Try Again", HttpStatus.BAD_REQUEST);
+		}
+		return resp;
+	}
+	
+	
+	
+	
+	
 }
