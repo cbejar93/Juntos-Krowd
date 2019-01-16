@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
       .subscribe(
         (users) => {
         for (let user of users) {
-          if (user.userid == 626) {
+          if (user.userid == 659) {
             this.user = {
               id: user.userid,
               photo: user.photo_url,
