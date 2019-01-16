@@ -32,7 +32,8 @@ public class LoggingAspect {
 	}
 	
 	/*
-	 * This method is calling the generalPointCut method that we made above 
+	 * This method is called before the generalPointCut method that we made above to log the info to the
+	 * info to the text file. The logging itself is going to happen a txt file named log.
 	 */
 	@Before("generalPointCut()")
 	public void infoLog(JoinPoint jp) {
