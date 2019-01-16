@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EventPageComponent implements OnInit {
   event : {id: number, photo: string, name: string, description: string, location:string, date: any, user_id:number}
+  
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
