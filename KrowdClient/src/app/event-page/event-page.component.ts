@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DataServiceService } from '../data-service.service'
 
 @Component({
   selector: 'app-event-page',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class EventPageComponent implements OnInit {
   event : {id: number, photo: string, name: string, description: string, location:string, date: any, user_id:number}
   
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private dataService: DataServiceService) { }
 
   ngOnInit() {
     this.event ={
@@ -23,6 +24,11 @@ export class EventPageComponent implements OnInit {
     }
     console.log(this.event);
     // this.eventID = ;
+
+    this.dataService.getEventbyId(this.event.id)
+      .subscribe(
+        (data) => console.log(data)
+      )
   }
 
 }
