@@ -2,6 +2,14 @@ package com.krowd.beans;
 
 public class Credentials {
 	
+	public Credentials(String username, String password, String email, String fID) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.fID = fID;
+	}
+
 	public Credentials() {
 		super();
 	}
@@ -14,6 +22,8 @@ public class Credentials {
 	
 	private String username;
 	private String password;
+	private String email;
+	private String fID;
 	
 	public String getUsername() {
 		return username;
@@ -61,6 +71,22 @@ public class Credentials {
 		} else if (!username.equals(other.username))
 			return false;
 		return true;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getfID() {
+		return fID;
+	}
+
+	public void setfID(String fID) {
+		this.fID = fID;
 	}
 	
 
