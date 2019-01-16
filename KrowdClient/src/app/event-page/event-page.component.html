@@ -1,10 +1,49 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">{{event.name}}</h1>
-    <img src={{event.photo}}>
-    <em class="lead">{{event.description}}</em>
-    <p class="lead">{{event.location}}</p>
-    <p class="lead">{{event.date | date}}</p>
+<h1 class="lead centerize pagetitle">{{event.name}} - {{event.date | date}}</h1>
+<div id="maindiv">
+  <br>
+    <h4 class="centerize"></h4>
+    <div class="row">
+      <div class="boxspace" id="eventdiv">
+          <h5 class="centerize">{{event.location}} Tampa, FL 33613</h5>
+          <br>
+        <img src={{event.photo}} class="eventpic">
+        <br> 
+        <p class="lead centerize">{{event.description}}</p>
+        
+        
+      </div>
+      &nbsp; &nbsp;
+    <div class="boxspace" id="userdiv">
+        <h2 class="centerize">Attendees</h2>
   </div>
-  <button>Register</button>
+  <button class="btn btn-success button-center">Register</button>
+  <br>
+  </div>
+  <div id="maincommentdiv">
+      <h4 class="centerize">Comments</h4>
+      <div class="row commentdiv col-12">
+        <div id="UserInfo" class="col-2">
+            <img src={{user.photo}} class="commentpic centerize">  
+        </div>
+        <div id="comment-body" class="col-10">
+          <p>Lorem ipsum dolor amet artisan unicorn chartreuse four dollar toast vexillologist authentic swag trust fund leggings typewriter small batch cray austin health goth flannel. Pork belly authentic polaroid kombucha mustache pop-up cloud bread. Salvia narwhal activated charcoal vexillologist, helvetica trust fund edison bulb shabby chic brunch kickstarter knausgaard VHS chambray. Listicle tote bag cliche af flexitarian art party roof party cray knausgaard humblebrag XOXO church-key meditation chillwave post-ironic. Retro venmo 90's intelligentsia, master cleanse kitsch bicycle rights raclette kickstarter. Beard venmo pork belly trust fund la croix quinoa poutine marfa raclette hammock tumblr raw denim organic.</p>
+          <span id="comment-metadata">
+            <p>User: Example User &nbsp; &nbsp; Date: 4-20-666</p>
+          </span>
+        </div>
+      </div>
+
+        <div class="row commentdiv col-12">
+          <div id="UserInfo" class="col-2">
+            <img>
+          </div>
+          <div id="comment-body" class="col-10">
+            <p>Lorem ipsum dolor amet artisan unicorn chartreuse four dollar toast vexillologist authentic swag trust fund leggings typewriter small batch cray austin health goth flannel. Pork belly authentic polaroid kombucha mustache pop-up cloud bread. Salvia narwhal activated charcoal vexillologist, helvetica trust fund edison bulb shabby chic brunch kickstarter knausgaard VHS chambray. Listicle tote bag cliche af flexitarian art party roof party cray knausgaard humblebrag XOXO church-key meditation chillwave post-ironic. Retro venmo 90's intelligentsia, master cleanse kitsch bicycle rights raclette kickstarter. Beard venmo pork belly trust fund la croix quinoa poutine marfa raclette hammock tumblr raw denim organic.</p>
+          </div>
+        </div>
+  </div>
+  <!-- <div class="row"> -->
+    
+  <!-- </div> -->
+
 </div>
