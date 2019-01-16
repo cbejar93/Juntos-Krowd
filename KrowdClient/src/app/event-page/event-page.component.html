@@ -1,3 +1,10 @@
-<p>
-  event-page works!
-</p>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">{{event.name}}</h1>
+    <img src={{event.photo}}>
+    <em class="lead">{{event.description}}</em>
+    <p class="lead">{{event.location}}</p>
+    <p class="lead">{{event.date | date}}</p>
+  </div>
+  <button>Register</button>
+</div>
