@@ -10,7 +10,7 @@
           <h5 class="card-title">{{event.event_name}}</h5>
           <p class="card-text">{{event.event_description}}</p>
           <p class="card-text">Location: {{event.event_location}} </p>
-          <p class="card-text">Date: {{event.event_date}} </p>
+          <p class="card-text">Date: {{event.event_date | date }} </p>
           <!-- href TBD for now -->
           <a href="#" class="btn btn-primary">Register</a>
         </div>

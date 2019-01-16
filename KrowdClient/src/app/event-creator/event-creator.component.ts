@@ -40,7 +40,6 @@ export class EventCreatorComponent implements OnInit {
       value.eventLocation, value.eventDescription,
       value.eventCategory, null,
       null, this.imageURL,
-
       null, value.eventPeople);
 
     console.log(newEvent);
