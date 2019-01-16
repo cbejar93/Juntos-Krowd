@@ -12,3 +12,8 @@
     padding: 20px;
 }
 
+.button-center {
+    float:left;
+    position:bottom;
+    width: 100%;
+}
