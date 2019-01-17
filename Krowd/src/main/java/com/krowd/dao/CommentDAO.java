@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.krowd.beans.Comments;
 
+/*
+ * The interface for the CommentDAO. These methods will be implemented in the
+ * CommentDAOImpl. 
+ */
 public interface CommentDAO {
 	
 	public List<Comments> getAllComments();

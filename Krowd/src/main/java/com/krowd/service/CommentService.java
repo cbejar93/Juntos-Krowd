@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.krowd.beans.Comments;
 
+/*
+ * This is an interface that contains methods for the services for Comments.
+ */
 public interface CommentService {
 	
 	List<Comments> getAllComments();

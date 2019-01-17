@@ -5,6 +5,9 @@ import java.util.List;
 import com.krowd.beans.Events;
 import com.krowd.beans.Users;
 
+/*
+ * Interface for the JunctionDAO, these methods will be implemented in the JunctionDAOImpl.
+ */
 public interface JunctionDAO {
 	
 	public List<Users> getAll();

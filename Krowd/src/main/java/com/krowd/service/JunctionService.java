@@ -5,6 +5,9 @@ import java.util.List;
 import com.krowd.beans.Events;
 import com.krowd.beans.Users;
 
+/*
+ * Interface for services related to the junction tables.
+ */
 public interface JunctionService {
 
 	// Users Following and Followers

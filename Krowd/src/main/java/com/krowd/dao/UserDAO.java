@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.krowd.beans.Users;
 
+/*
+ * The interface for the UserDAO, with methods that will be implemented in the 
+ * UserDAOImpl.
+ */
 public interface UserDAO {
 
 	//Success
