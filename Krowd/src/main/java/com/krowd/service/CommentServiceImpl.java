@@ -29,8 +29,8 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public void deleteComment(int comment_Id) {
-		ud.deleteComment(comment_Id);
+	public void deleteComment(Comments comments) {
+		ud.deleteComment(comments);
 	}
 
 	@Override
