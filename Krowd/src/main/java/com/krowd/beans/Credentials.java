@@ -1,7 +1,14 @@
 package com.krowd.beans;
 
+/*
+ * This is a Bean for our credentials that help us with Authentication.
+ */
+
 public class Credentials {
 	
+	/*
+	 * Our various constructors.
+	 */
 	public Credentials(String username, String password, String email, String fID) {
 		super();
 		this.username = username;
@@ -20,11 +27,17 @@ public class Credentials {
 		this.password = password;
 	}
 	
+	/*
+	 * The fields for the Credentials.
+	 */
 	private String username;
 	private String password;
 	private String email;
 	private String fID;
 	
+	/*
+	 * Getters and setters for the fields.
+	 */
 	public String getUsername() {
 		return username;
 	}
@@ -37,11 +50,20 @@ public class Credentials {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	/*
+	 * The toString that will print, containing our fields.(non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Credentials [username=" + username + ", password=" + password + "]";
 	}
 
+	/*
+	 * The hashcode for the Credentials.(non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
