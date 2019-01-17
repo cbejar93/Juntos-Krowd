@@ -3,21 +3,21 @@
     <div class="row">
       <div class="col">
           <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstName" ngModel class="form-control">
+          <input type="text" id="firstName" name="firstName" ngModel required class="form-control">
           <label for="lastName">Last Name</label>
-          <input type="text" id="lastName" name="lastName" ngModel class="form-control">
+          <input type="text" id="lastName" name="lastName" ngModel required class="form-control">
           <label for="username">Username</label>
-          <input type="text" id="username" name="username" ngModel class="form-control">
+          <input type="text" id="username" name="username" ngModel required class="form-control">
         </div>
         <div class="col">
           <label for="email">E-mail</label>
-          <input type="text" id="email" name="email" ngModel class="form-control">
+          <input type="text" id="email" name="email" ngModel ngControl="email" required class="form-control">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" ngModel class="form-control">
+          <input type="password" id="password" name="password" ngModel required class="form-control">
           <label for="retypepassword">Re-type Password</label>
-          <input type="password" id="retypepassword" name="retypepassword" ngModel class="form-control">
+          <input type="password" id="retypepassword" name="retypepassword" ngModel required class="form-control">
         </div>
     </div>
   </div>
-  <button class="btn btn-primary" type="submit">Sign Up</button>
+  <button [disabled]="!f.form.valid" class="btn btn-primary" type="submit">Sign Up</button>
 </form>

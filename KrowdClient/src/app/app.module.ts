@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
@@ -86,7 +86,8 @@ const appRoutes: Routes = [
     Ng2CloudinaryModule,
     FileUploadModule,
     RouterModule.forRoot(appRoutes),
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
 
   ],
   providers: [DataServiceService, AuthService,UserModelService, AuthGuardService],

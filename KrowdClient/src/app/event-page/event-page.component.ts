@@ -15,6 +15,14 @@ export class EventPageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private dataService: DataServiceService, private authService: AuthService) { }
   userID: number;
   toggle: boolean = false;
+  commentUserID: number;
+  usercomment: {
+    username: string,
+    picture: string,
+    comment: any
+  }
+
+  attendingList = [];
 
   newComment : {data: string, eventId: number, userId: number}
 
@@ -38,13 +46,30 @@ export class EventPageComponent implements OnInit {
         .subscribe(
           (comments)=> {
             for (let comment of comments) {
-              console.log(comment)
-              this.commentsList.push(comment)
+              console.log(comment);
+              this.commentUserID = comment['user_id'];
+              console.log(this.commentUserID);
+              this.dataService.getUserById(this.commentUserID)
+              .subscribe((res)=> {
+                console.log(res);
+                this.usercomment = {
+                  username: res['username'],
+                  picture: res['photo_url'],
+                  comment: comment
+                }
+                console.log("New user comment:");
+                console.log(this.usercomment);
+                this.commentsList.push(this.usercomment);
+
+              }
+              
+              )
+             
               }
             },
           (error)=> console.log(error)
           );
-          
+        console.log("Comments list: ")
         console.log(this.commentsList);
         return this.commentsList;
   }
@@ -67,14 +92,20 @@ export class EventPageComponent implements OnInit {
       }
 
   ontoggle() {
-    this.toggle = true;
-  }
+    if (this.toggle == true) {
+    this.toggle = false;
+      }
+    else {
+      this.toggle = true;
+     } 
+    }
 
   onCommentCreated(form: NgForm) {
     const value = form.value;
     console.log(this.event);
     //console.log(this.getEvent(this.event.id));
     this.dataService.addComment(value.data, this.event, this.userID)
+    form.resetForm();
   }
 }
 
