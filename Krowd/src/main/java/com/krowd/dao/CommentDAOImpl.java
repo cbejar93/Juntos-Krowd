@@ -10,12 +10,21 @@ import org.hibernate.Transaction;
 import com.krowd.beans.Comments;
 import com.krowd.util.HibernateUtil;
 
+/*
+ * Interface that implements the CommentDAO methods.
+ */
 public class CommentDAOImpl implements CommentDAO {
 	
+	/*
+	 * This creates a session factory for the methods to be able to execute.
+	 */
 	private SessionFactory sf = HibernateUtil.getSessionFactory();
 
 	
-
+	/*
+	 * This method deletes comments that are made.(non-Javadoc)
+	 * @see com.krowd.dao.CommentDAO#deleteComment(com.krowd.beans.Comments)
+	 */
 	@Override
 	public void deleteComment(Comments comments) {
 		try (Session s = sf.getCurrentSession()) {
@@ -27,6 +36,10 @@ public class CommentDAOImpl implements CommentDAO {
 		
 	}
 
+	/*
+	 * This method updates the comments (non-Javadoc)
+	 * @see com.krowd.dao.CommentDAO#updateComment(com.krowd.beans.Comments)
+	 */
 	@Override
 	public void updateComment(Comments comments) {
 		try (Session s = sf.getCurrentSession()) {
@@ -38,6 +51,10 @@ public class CommentDAOImpl implements CommentDAO {
 		
 	}
 
+	/*
+	 * This method creates comments.(non-Javadoc)
+	 * @see com.krowd.dao.CommentDAO#createComment(com.krowd.beans.Comments)
+	 */
 	@Override
 	public void createComment(Comments comments) {
 		try (Session s = sf.getCurrentSession()) {
@@ -49,6 +66,10 @@ public class CommentDAOImpl implements CommentDAO {
 		
 	}
 	
+	/*
+	 * This method grabs certain comments by a particular Comment Id.(non-Javadoc)
+	 * @see com.krowd.dao.CommentDAO#getCommentById(int)
+	 */
 	@Override
 	public Comments getCommentById(int comment_Id) {
 		Comments comt = null;
@@ -60,6 +81,11 @@ public class CommentDAOImpl implements CommentDAO {
 		}
 		return comt;
 	}
+	
+	/*
+	 * This method simply gets all comments.(non-Javadoc)
+	 * @see com.krowd.dao.CommentDAO#getAllComments()
+	 */
 	@Override
 	public List<Comments> getAllComments() {
 		List<Comments> comments = new ArrayList<>();
@@ -72,7 +98,11 @@ public class CommentDAOImpl implements CommentDAO {
 		return comments;
 	}
 
-	
+	/*
+	 * This method gets comments by a UserId. The method will create a query to where
+	 * the Comments that are made only by that particular User Id will display.(non-Javadoc)
+	 * @see com.krowd.dao.CommentDAO#getCommentsByUserId(int)
+	 */
 
 	@Override
 	public List<Comments> getCommentsByUserId(int user_Id) {
@@ -87,6 +117,11 @@ public class CommentDAOImpl implements CommentDAO {
 		
 	}
 
+	/*
+	 * This method grabs comments by a certain event. The way this happens, is that the 
+	 * comments are grabbed by a certain Event Id.(non-Javadoc)
+	 * @see com.krowd.dao.CommentDAO#getCommentsByEventId(int)
+	 */
 	@Override
 	public List<Comments> getCommentsByEventId(int event_Id) {
 		List<Comments> comments = new ArrayList<>();

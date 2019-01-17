@@ -11,10 +11,20 @@ import com.krowd.beans.Events;
 import com.krowd.beans.Users;
 import com.krowd.util.HibernateUtil;
 
+/*
+ * This is an class to implement the methods from JunctionDAO.
+ */
 public class JunctionDAOImpl implements JunctionDAO {
 
+	/*
+	 * Field to create a session factory.
+	 */
 	private SessionFactory sf = HibernateUtil.getSessionFactory();
 
+	/*
+	 * This method grabs all the users from the junction table, User_Friends.(non-Javadoc)
+	 * @see com.krowd.dao.JunctionDAO#getAll()
+	 */
 	@Override
 	public List<Users> getAll(){
 		List<Users> users = null;
@@ -56,6 +66,11 @@ public class JunctionDAOImpl implements JunctionDAO {
 		return users;
 	}
 
+	/*
+	 * This method will create a follower for a certain user when somebody
+	 * follows them.(non-Javadoc)
+	 * @see com.krowd.dao.JunctionDAO#createFollower(com.krowd.beans.Users)
+	 */
 	@Override
 	public void createFollower(Users userFriend) {
 		try (Session s = sf.getCurrentSession()){
@@ -66,6 +81,11 @@ public class JunctionDAOImpl implements JunctionDAO {
 		}
 	}
 
+	/*
+	 * This method allows the UserFriend the ability to unfollow a particular
+	 * User.(non-Javadoc)
+	 * @see com.krowd.dao.JunctionDAO#unFollow(com.krowd.beans.Users)
+	 */
 	@Override
 	public void unFollow(Users userFriend) {
 		try(Session s = sf.getCurrentSession()){

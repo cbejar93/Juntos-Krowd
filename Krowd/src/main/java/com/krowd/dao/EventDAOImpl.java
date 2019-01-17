@@ -10,11 +10,20 @@ import org.hibernate.Transaction;
 import com.krowd.beans.Events;
 import com.krowd.util.HibernateUtil;
 
+/*
+ * This class implements the methods from the EventDAO.
+ */
 public class EventDAOImpl implements EventDAO {
 
+	/*
+	 * This simply creates a session factory for the class.
+	 */
 	private SessionFactory sf = HibernateUtil.getSessionFactory();
 	
-	
+	/*
+	 * This method gets all events that are under a particular event Id.(non-Javadoc)
+	 * @see com.krowd.dao.EventDAO#getEventById(int)
+	 */
 	@Override
 	public Events getEventById(int event_Id) {
 		
@@ -31,6 +40,10 @@ public class EventDAOImpl implements EventDAO {
 		
 	}
 
+	/*
+	 * This method deletes events.(non-Javadoc)
+	 * @see com.krowd.dao.EventDAO#deleteEvent(com.krowd.beans.Events)
+	 */
 	@Override
 	public void deleteEvent(Events events) {
 		try (Session s = sf.getCurrentSession()) {
@@ -42,6 +55,10 @@ public class EventDAOImpl implements EventDAO {
 		
 	}
 
+	/*
+	 * This method updates events.(non-Javadoc)
+	 * @see com.krowd.dao.EventDAO#updateEvent(com.krowd.beans.Events)
+	 */
 	@Override
 	public void updateEvent(Events events) {
 		try (Session s = sf.getCurrentSession()) {
@@ -53,6 +70,10 @@ public class EventDAOImpl implements EventDAO {
 		
 	}
 
+	/*
+	 * This method gives the ability to create an event.(non-Javadoc)
+	 * @see com.krowd.dao.EventDAO#createEvent(com.krowd.beans.Events)
+	 */
 	@Override
 	public void createEvent(Events events) {
 		try (Session s = sf.getCurrentSession()) {
@@ -64,6 +85,10 @@ public class EventDAOImpl implements EventDAO {
 		
 	}
 
+	/*
+	 * This method simply gets all events.(non-Javadoc)
+	 * @see com.krowd.dao.EventDAO#getAllEvents()
+	 */
 	@Override
 	public List<Events> getAllEvents() {
 		List<Events> events = new ArrayList<>();
@@ -76,6 +101,11 @@ public class EventDAOImpl implements EventDAO {
 		return events;
 	}
 
+	/*
+	 * This method simply grabs all events by a specified user. This happens
+	 * by grabbing the particular User id, and displaying those events.(non-Javadoc)
+	 * @see com.krowd.dao.EventDAO#getEventByUserId(int)
+	 */
 	@Override
 	public List<Events> getEventByUserId(int userid) {
 		

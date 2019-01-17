@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.krowd.beans.Events;
 
+/*
+ * This interface that contains methods for the services for Events.
+ */
 public interface EventService {
 	
 	public List<Events> getAllEvents();

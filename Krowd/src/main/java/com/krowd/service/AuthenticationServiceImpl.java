@@ -9,6 +9,9 @@ import com.krowd.beans.Users;
 import com.krowd.dao.UserDAO;
 import com.krowd.dao.UserDAOImpl;
 
+/*
+ * Class that implements the methods from AuthenticationService.
+ */
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
 

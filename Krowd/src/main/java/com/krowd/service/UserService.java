@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.krowd.beans.Users;
 
+/*
+ * Interface for the services related to Users.
+ */
 public interface UserService {
 	
 	public List<Users> getAllUsers();

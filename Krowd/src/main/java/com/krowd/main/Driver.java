@@ -7,6 +7,9 @@ import com.krowd.dao.JunctionDAO;
 import com.krowd.dao.JunctionDAOImpl;
 import com.krowd.util.HibernateUtil;
 
+/*
+ * Simple driver class with the main method. Predominately used for testing.
+ */
 //@Configuration
 //@ComponentScan
 public class Driver {

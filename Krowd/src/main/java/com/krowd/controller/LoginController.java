@@ -17,11 +17,18 @@ import com.krowd.beans.Credentials;
 import com.krowd.beans.Users;
 import com.krowd.service.AuthenticationService;
 import com.krowd.service.AuthenticationServiceImpl;
-
+/*
+ * This is a Controller that will be instrumental for the login process for the application.
+ * The class can be mapped by having "/login" at the end of the url.
+ */
 @RestController
 @RequestMapping (value="/login")
 public class LoginController {
 
+	/*
+	 * This method is a constructor that makes a call to the Super class, and it establishes
+	 * the authService for the controller.
+	 */
 	@Autowired
 	public LoginController(AuthenticationServiceImpl authService) {
 		super();
@@ -29,9 +36,20 @@ public class LoginController {
 
 	}
 
+	/*
+	 * Instantiates an authService variable that will be used in the methods.
+	 */
 	private AuthenticationService authService;
 
-	// handle the form data sent to the login page
+	/*
+	 * This method will handle the Form data sent to the login page.It will take in 
+	 * credentials as well as a request to the HTTPServlet. The method will have an HTTP
+	 * session created and then will pass through the credentials to Authenticate users,
+	 * and if the user is not properly authenticated, the site prompt the user Bad Request.
+	 * If they are properly authenticated, there attributes will be filled properly. There will
+	 * also be an OK HTTP request status.
+	 */
+
 	@CrossOrigin(origins="http://localhost:4200")
 	@PostMapping(value ="/sent")
 	public ResponseEntity<Users> handleFormRequest(@RequestBody Credentials creds, HttpServletRequest req)
