@@ -123,7 +123,7 @@ export class DataServiceService {
 
   addComment(data: string, event: any, userId: number) {
     console.log(event);
-    this.httpClient.post('http://localhost:8080/Krowd/comment/add', { 'data':data,'event': event, 'Created': null,'user_id': userId })
+    this.httpClient.post(`http://localhost:8080/Krowd/comment/add/${event.id}`, { 'data':data, 'Created': null,'user_id': userId , 'event_id': event.id})
       .subscribe((comment) => console.log(comment));
   }
 }

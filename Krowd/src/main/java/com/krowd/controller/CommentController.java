@@ -111,7 +111,6 @@ public class CommentController {
 		ResponseEntity<String> resp = null;
 		System.out.println(comment);
 		try {
-			
 			commentService.createComment(comment);
 			resp = new ResponseEntity<>("", HttpStatus.OK);
 			
