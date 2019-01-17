@@ -8,10 +8,10 @@ import com.krowd.beans.Users;
 import com.krowd.dao.UserDAO;
 import com.krowd.dao.UserDAOImpl;
 
+@Service(value = "userService")
 /*
  * Service class that implements the methods from UserService interface.
  */
-@Service(value="userService")
 public class UserServiceImpl implements UserService {
 
 	/*
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public void updateUsers(Users user) {
-		// TODO Auto-generated method stub
+		ud.updateUsers(user);
 	}
 
 	/*
@@ -77,8 +77,5 @@ public class UserServiceImpl implements UserService {
 	public List<Users> getUserByFID(String fID) {
 		return ud.getUserByFID(fID);
 	}
-
-
-	
 
 }

@@ -10,13 +10,18 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.krowd.beans.Comments;
+import com.krowd.beans.Events;
+import com.krowd.beans.Users;
 import com.krowd.service.CommentService;
+import com.krowd.service.EventService;
+import com.krowd.service.EventServiceImpl;
 
 /*
  * The Controller that is for the Comments in the application. Contains many different
@@ -100,11 +105,12 @@ public class CommentController {
 	 * not created successfully then the user will get a string stating the usre must try again
 	 * and that it was a bad request.
 	 */
-	@PostMapping(value="/add")
-	@ResponseBody
-	public ResponseEntity<String> addcomment(@RequestBody Comments comment){
+	@PostMapping(value="/add/(id)")
+  @ResponseBody
+	public ResponseEntity<String> addcomment(@PathVariable int id, @RequestBody Comments comment){
 		ResponseEntity<String> resp = null;
 		try {
+			
 			commentService.createComment(comment);
 			resp = new ResponseEntity<>("comment Created!", HttpStatus.OK);
 			
@@ -121,16 +127,16 @@ public class CommentController {
 	 * does not go through, then an exception will be thrown to try again. The URL must end with
 	 * "/update" to be mapped.
 	 */
-	@PostMapping(value="/update")
-	@ResponseBody
-	public ResponseEntity<String> updatecomment(@RequestBody Comments comment){
+@PutMapping(value="/update/{id}")
+@ResponseBody
+	public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody Users user){
 		ResponseEntity<String> resp = null;
 		try {
-			commentService.updateComment(comment);
-			resp = new ResponseEntity<>("comment updated!", HttpStatus.OK);
 			
+			
+			resp = new ResponseEntity<>("User Updated!", HttpStatus.OK);
 		} catch (Exception e) {
-			resp = new ResponseEntity<>("Comment Not Updated, Try Again", HttpStatus.BAD_REQUEST);
+			resp = new ResponseEntity<>("User Not Updated, Try Again", HttpStatus.BAD_REQUEST);
 		}
 		return resp;
 	}
