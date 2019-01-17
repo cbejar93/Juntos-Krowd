@@ -3,11 +3,8 @@ package com.krowd.main;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import com.krowd.beans.Events;
-import com.krowd.dao.EventDAO;
-import com.krowd.dao.EventDAOImpl;
-import com.krowd.dao.UserDAO;
-import com.krowd.dao.UserDAOImpl;
+import com.krowd.dao.JunctionDAO;
+import com.krowd.dao.JunctionDAOImpl;
 import com.krowd.util.HibernateUtil;
 
 //@Configuration
@@ -21,15 +18,11 @@ public class Driver {
 	}
 
 	static void testingUsers(SessionFactory sf) {
-		UserDAO ud = new UserDAOImpl();
-		EventDAO ed = new EventDAOImpl();
+		JunctionDAO js = new JunctionDAOImpl();
 		Session s = sf.getCurrentSession();
 		
-		Events evn = new Events("Welcome to The Jungle",
-				"This is Purely a test of the Event Creation System, Thanks for looking Though", 900);
-		ed.createEvent(evn);
+		System.out.println(js.getAll());
 		
-		System.out.println(evn);
 		s.close();
 	}
 

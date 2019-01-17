@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.krowd.beans.User_Events;
-import com.krowd.beans.User_Friends;
+import com.krowd.beans.Events;
+import com.krowd.beans.Users;
 import com.krowd.dao.JunctionDAO;
 import com.krowd.dao.JunctionDAOImpl;
 
@@ -15,45 +15,45 @@ public class JunctionServiceImpl implements JunctionService {
 	private JunctionDAO jd = new JunctionDAOImpl();
 
 	@Override
-	public List<User_Friends> getUserFollowingList(int user_Id) {
+	public List<Users> getUserFollowingList(int user_Id) {
 		
 		return jd.getUserFollowingList(user_Id);
 	}
 
 	@Override
-	public List<User_Friends> getUserFollowerList(int user_Id) {
+	public List<Users> getUserFollowerList(int user_Id) {
 		// TODO Auto-generated method stub
 		return jd.getUserFollowingList(user_Id);
 	}
 
 	@Override
-	public void createFollower(User_Friends userFriend) {
+	public void createFollower(Users userFriend) {
 		jd.createFollower(userFriend);
 	}
 
 	@Override
-	public void unFollow(User_Friends userFriend) {
+	public void unFollow(Users userFriend) {
 		jd.unFollow(userFriend);
 	}
 
 	@Override
-	public List<User_Events> getAttendingUsersList(int event_Id) {
+	public List<Users> getAttendingUsersList(int event_Id) {
 		
 		return jd.getAttendingUsersList(event_Id);
 	}
 
 	@Override
-	public List<User_Events> getEventUserIsAttending(int user_Id) {
+	public List<Events> getEventUserIsAttending(int user_Id) {
 		return jd.getEventUserIsAttending(user_Id);
 	}
 
 	@Override
-	public void createAttendee(User_Events userEvent) {
+	public void createAttendee(Users userEvent) {
 		jd.createAttendee(userEvent);
 	}
 
 	@Override
-	public void removeAttendee(User_Events userEvent) {
+	public void removeAttendee(Users userEvent) {
 		jd.removeAttendee(userEvent);
 	}
 
