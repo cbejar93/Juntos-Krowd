@@ -104,7 +104,7 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    return this.currentUser.ctk != null;  
+    return this.tk != null;  
   }
 
   logOut() {

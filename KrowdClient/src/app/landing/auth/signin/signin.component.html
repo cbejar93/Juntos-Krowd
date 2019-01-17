@@ -1,7 +1,7 @@
 <form (ngSubmit)="onSignIn(f)" #f="ngForm">
   <div class="form-group">
     <label for="username">email</label>
-    <input type="text" id="email" name="email" ngModel required class="form-control">
+    <input type="text" id="email" name="email" ngModel  email="true" required class="form-control">
     <label for="username">username</label>
     <input type="text" id="username" name="username" ngModel required class="form-control">
     <label for="password">password</label>
