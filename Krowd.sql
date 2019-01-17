@@ -36,7 +36,7 @@ INTO   :new.user_id
 FROM   dual;
 END;
 
-
+commit;
 
 CREATE SEQUENCE event_seq START WITH 100;
 CREATE OR REPLACE TRIGGER EVENT_ID_CREATOR
