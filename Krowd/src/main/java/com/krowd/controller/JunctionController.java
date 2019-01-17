@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.krowd.beans.User_Events;
-import com.krowd.beans.User_Friends;
+import com.krowd.beans.Events;
+import com.krowd.beans.Users;
 import com.krowd.service.JunctionService;
 
 @Controller
@@ -26,13 +26,13 @@ public class JunctionController {
 	
 	@GetMapping(value="/{user_Id}/following")
 	@ResponseBody
-	public ResponseEntity<List<User_Friends>> getUserFollowingList(int user_Id) {
+	public ResponseEntity<List<Users>> getUserFollowingList(int user_Id) {
 		return new ResponseEntity<>(junctionService.getUserFollowingList(user_Id), HttpStatus.OK);
 	}
 	
 	@GetMapping(value="/{user_Id}/followers")
 	@ResponseBody
-	public ResponseEntity<List<User_Friends>> getUserFollowerList(int user_Id) {
+	public ResponseEntity<List<Users>> getUserFollowerList(int user_Id) {
 		return new ResponseEntity<>(junctionService.getUserFollowerList(user_Id), HttpStatus.OK);
 	}
 	
@@ -40,13 +40,13 @@ public class JunctionController {
 	
 	@GetMapping(value="/{event_Id}/attending")
 	@ResponseBody
-	public ResponseEntity<List<User_Events>> getAttendingUsersList(int event_Id) {
+	public ResponseEntity<List<Users>> getAttendingUsersList(int event_Id) {
 		return new ResponseEntity<>(junctionService.getAttendingUsersList(event_Id),HttpStatus.OK);
 	}
 	
 	@GetMapping(value="/{user_Id}/attending")
 	@ResponseBody
-	public ResponseEntity<List<User_Events>> getEventUserIsAttendingList(int user_Id) {
+	public ResponseEntity<List<Events>> getEventUserIsAttendingList(int user_Id) {
 		return new ResponseEntity<>(junctionService.getEventUserIsAttending(user_Id),HttpStatus.OK);
 	}
 }
