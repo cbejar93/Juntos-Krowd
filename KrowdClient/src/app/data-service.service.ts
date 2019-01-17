@@ -120,6 +120,11 @@ export class DataServiceService {
   getUserByFID(fID: string){
     
   }
+
+  addComment(data: string, eventId: any, userId: number) {
+    this.httpClient.post('http://localhost:8080/Krowd/comment/add', { 'data':data,'event': eventId, 'Created': null,'user_id': userId })
+      .subscribe((comment) => console.log(comment));
+  }
 }
 
   

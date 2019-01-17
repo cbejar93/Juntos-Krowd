@@ -21,7 +21,7 @@ export class AuthService {
     cUserID: number
   } = null;
 
-  userID:string;
+  userID:number;
 
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',

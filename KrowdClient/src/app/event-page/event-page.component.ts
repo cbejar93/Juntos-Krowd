@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataServiceService } from '../data-service.service'
 import { AuthService } from '../landing/auth/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-event-page',
@@ -12,8 +13,10 @@ export class EventPageComponent implements OnInit {
   event : {id: number, photo: string, name: string, description: string, location:string, date: any, user_id:number}
   
   constructor(private route: ActivatedRoute, private dataService: DataServiceService, private authService: AuthService) { }
-  userID: string;
+  userID: number;
   toggle: boolean = false;
+
+  newComment : {data: string, eventId: number, userId: number}
 
   commentsList = [];
   ngOnInit() {
@@ -60,6 +63,11 @@ export class EventPageComponent implements OnInit {
 
   ontoggle() {
     this.toggle = true;
+  }
+
+  onCommentCreated(form: NgForm) {
+    const value = form.value;
+    this.dataService.addComment(value.data, this.event, this.userID)
   }
 }
 
