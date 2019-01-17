@@ -50,6 +50,16 @@ public class Events {
 		this.eventGuests = eventGuests;
 	}
 
+	
+	public Events(String event_name, String event_description, int user_id) {
+		super();
+		this.event_name = event_name;
+		this.event_description = event_description;
+		this.user_id = user_id;
+	}
+
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "eventSequence")
 	@SequenceGenerator(allocationSize = 1, name = "eventSequence", sequenceName = "SQ_Events_PK")
@@ -161,5 +171,7 @@ public class Events {
 	public void setEventGuests(int eventGuests) {
 		this.eventGuests = eventGuests;
 	}
+	
+	
 
 }
