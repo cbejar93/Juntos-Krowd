@@ -9,7 +9,7 @@ import { AuthService } from '../landing/auth/auth.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  user : {id: number, photo: string, firstname: string, lastname: string, tokenscore: number}
+  user : {id: string, photo: string, firstname: string, lastname: string, tokenscore: number}
   userID: string;
 
   constructor(private router: Router, private dataService: DataServiceService, private authService: AuthService) { }
@@ -22,7 +22,27 @@ export class ProfileComponent implements OnInit {
   }
 
   getUserInfo() {
-    this.dataService.getUserById(this.userID).subscribe(res=>console.log(res))
+    this.dataService.getUserById(this.userID).subscribe(data=>
+      {
+
+      // this.user = {
+      //     id: this.userID,
+      //     photo: data.photo_url,
+      //     firstname: data.firstname,
+      // }  
+      console.log("hello there");
+      })
   }
 
 }
+
+// {userid: 983, firstname: null, lastname: null, username: "natesnake", email: "natesnake@test.com", …}
+// email: "natesnake@test.com"
+// fID: "eKIuVqQldChNOPPDBHKDpwDm8mQ2"
+// firstname: null
+// lastname: null
+// password: "natesnake"
+// photo_url: null
+// token_score: 0
+// userid: 983
+// username: "natesnake"
