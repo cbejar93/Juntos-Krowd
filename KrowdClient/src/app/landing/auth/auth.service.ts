@@ -29,23 +29,26 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  signUpUserFireBase(email: string, password: string, username: string) {
+  signUpUserFireBase(email: string, password: string, username: string, firstname: string, lastname: string, photo_url: string) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(res => {
           console.log("hello from firebase sign in ");
         console.log(res.user.uid);
         let firedID: string = res.user.uid;
         
-        this.signUpUser(username, email, password, firedID);
+        this.signUpUser(username, email, password, firedID, firstname, lastname, photo_url);
         this.router.navigate(['/landing/signin']);
         
   })
         .catch(error => console.log(error));
   }
 
-  signUpUser(username: string, email:string, password: string, fireID: string) {
+  signUpUser(username: string, email:string, password: string, fireID: string, firstname: string, lastname: string, photo_url: string) {
     console.log(fireID);
-    this.http.post('http://localhost:8080/Krowd/user/add', { 'username':username,'password': password, 'email': email,'fID': fireID }).subscribe((event) => console.log(event));
+    console.log(firstname);
+    console.log(lastname);
+    console.log(photo_url);
+    this.http.post('http://localhost:8080/Krowd/user/add', { 'username':username,'password': password, 'email': email,'fID': fireID, 'firstname': firstname, 'lastname': lastname, 'photo_url': photo_url }).subscribe((event) => console.log(event));
 
   }
 

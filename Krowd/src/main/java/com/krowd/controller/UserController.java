@@ -85,7 +85,7 @@ public class UserController {
 		try {
 			userService.addUser(user);
 			System.out.println(user);
-			resp = new ResponseEntity<>("User Created!", HttpStatus.OK);
+			resp = new ResponseEntity<>("", HttpStatus.OK);
 			
 			
 		} catch (Exception e) {
