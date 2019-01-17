@@ -6,6 +6,7 @@ import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { AuthService } from './landing/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class DataServiceService {
     'Access-Control-Allow-Headers': 'Content-Type',
   });
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
   getAllEvents() {
     return this.httpClient.get<Event[]>("http://localhost:8080/Krowd/event/all")
@@ -101,8 +102,8 @@ export class DataServiceService {
     return this.httpClient.post("", eventId)
   }
 
-  getCommentsByEventId(id: number) {
-    return this.httpClient.get<Comment[]>(`http://localhost.8080/Krowd/event/${id}`)
+  getCommentsByEventId(eventId: number) {
+    return this.httpClient.get<Comment[]>(`http://localhost:8080/Krowd/comment/event/${eventId}`)
       .map((comments) => {
         let commentData = comments;
         return commentData;
@@ -110,6 +111,10 @@ export class DataServiceService {
       .pipe(catchError(error => {
         return throwError(error);
       }))
+  }
+
+  getUserByFID(fID: string){
+    
   }
 }
 

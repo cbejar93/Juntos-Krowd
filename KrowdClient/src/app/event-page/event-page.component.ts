@@ -12,6 +12,8 @@ export class EventPageComponent implements OnInit {
   
   constructor(private route: ActivatedRoute, private dataService: DataServiceService) { }
 
+  toggle: boolean = false;
+
   commentsList = [];
   ngOnInit() {
     this.event ={
@@ -52,6 +54,10 @@ export class EventPageComponent implements OnInit {
           
         console.log(this.commentsList);
         return this.commentsList;
+  }
+
+  ontoggle() {
+    this.toggle = true;
   }
 }
 

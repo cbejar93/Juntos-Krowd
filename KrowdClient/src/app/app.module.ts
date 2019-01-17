@@ -29,7 +29,7 @@ import { AuthService } from './landing/auth/auth.service';
 import { UserModelService } from './user-model.service';
 import { EventPageComponent } from './event-page/event-page.component';
 
-
+// , canActivate: [AuthGuardService]
 
 const appRoutes: Routes = [
   { path:'home', component: HomeComponent },
@@ -52,7 +52,7 @@ const appRoutes: Routes = [
   },
   {path:'events/:id', component: EventPageComponent},
   {path: 'not-found', component: PageNotFoundComponent},
-  // {path: '**', redirectTo: '/not-found'}
+  {path: '**', redirectTo: '/not-found'}
 
 ]
 
@@ -89,7 +89,7 @@ const appRoutes: Routes = [
     NgbModule
 
   ],
-  providers: [DataServiceService, AuthService,UserModelService],
+  providers: [DataServiceService, AuthService,UserModelService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

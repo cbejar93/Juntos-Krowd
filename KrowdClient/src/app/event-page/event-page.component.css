@@ -48,7 +48,10 @@
 #maincommentdiv {
     width: 90%;
     margin: auto;
-    margin-bottom: 5%
+    margin-bottom: 5%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
 }
 
 #eventdiv {
@@ -69,8 +72,13 @@
 
 .button-center {
     float:left;
+    margin:auto;
     position:bottom;
     width: 120%;
+}
+
+.comment-button-center {
+    width: 100%;
 }
 
 .row {
@@ -111,4 +119,8 @@
     color: rgb(145, 137, 137);
     text-align: center;
     margin: auto;
+}
+
+.comment-button {
+    margin-bottom: 20px;
 }
