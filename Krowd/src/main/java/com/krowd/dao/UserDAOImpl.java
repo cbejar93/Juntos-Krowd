@@ -87,6 +87,21 @@ public class UserDAOImpl implements UserDAO {
 		return user;
 	}
 
+	@Override
+	public List<Users> getUserByFID(String fID) {
+		List<Users> user = null;
+		try(Session s = sf.getCurrentSession()) {
+			Transaction tx = s.beginTransaction();
+			
+			user = s.createQuery("from Users where FID = :fID").setParameter("fID", fID).getResultList();
+			
+			tx.commit();
+			s.close();
+		}
+		return user;
+	}
+	
+
 
 //	@Override
 //	public void updateFollow(Users user, Users user2) {

@@ -11,6 +11,6 @@ public interface UserService {
 	public void updateUsers(Users user);
 	public void deleteUsers(Users user);
 	public Users getUserById(int id); 
-	
+	public List<Users> getUserByFID(String fID);
 //	public void updateFollow(Users user, Users user2);
 }
