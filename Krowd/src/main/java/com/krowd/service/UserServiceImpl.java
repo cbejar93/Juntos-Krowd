@@ -38,10 +38,12 @@ public class UserServiceImpl implements UserService {
 		return ud.getUserById(id);
 	}
 
+	@Override
+	public List<Users> getUserByFID(String fID) {
+		return ud.getUserByFID(fID);
+	}
 
-//	@Override
-//	public void updateFollow(Users user, Users user2) {
-//		// TODO
-//	}
+
+	
 
 }
