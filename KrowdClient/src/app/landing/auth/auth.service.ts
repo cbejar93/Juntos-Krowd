@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 import { tokenKey } from '@angular/core/src/view';
 
 
@@ -31,6 +33,7 @@ export class AuthService {
         console.log(res.user.uid);
         let firedID: string = res.user.uid;
         this.signUpUser(username, email, password, firedID);
+        this.getUserbyFID(firedID);
   })
         .catch(error => console.log(error));
   }
@@ -41,8 +44,14 @@ export class AuthService {
 
   }
 
-  getUserbyFID(){
-    
+  getUserbyFID(fid: string){
+    this.http.get(`http://localhost:8080/Krowd/user/fid/${fid}`)
+    .map((event) => { console.log(event); }
+
+    )
+    .pipe(catchError(error => {
+      return throwError(error);
+    }))
   }
 
   signInUserFirebase(email: string, password:string, username: string ){
@@ -75,6 +84,10 @@ export class AuthService {
        this.tk= token
 
    )
+  }
+
+  getCurrentUser(){
+    return this.currentUser;
   }
 
   isAuthenticated() {
