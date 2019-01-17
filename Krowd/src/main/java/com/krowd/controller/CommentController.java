@@ -109,12 +109,15 @@ public class CommentController {
   @ResponseBody
 	public ResponseEntity<String> addcomment(@PathVariable int id, @RequestBody Comments comment){
 		ResponseEntity<String> resp = null;
+		System.out.println(comment);
 		try {
 			
 			commentService.createComment(comment);
 			resp = new ResponseEntity<>("comment Created!", HttpStatus.OK);
 			
 		} catch (Exception e) {
+			System.out.println(e);
+			e.printStackTrace();
 			resp = new ResponseEntity<>("No comment Created, Try Again", HttpStatus.BAD_REQUEST);
 		}
 		return resp;

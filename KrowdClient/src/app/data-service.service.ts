@@ -69,7 +69,7 @@ export class DataServiceService {
       )
   }
 
-  getUserById(userID: string){
+  getUserById(userID: number){
     return this.httpClient.get(`http://localhost:8080/Krowd/user/${userID}`)
   }
 
@@ -121,8 +121,9 @@ export class DataServiceService {
     
   }
 
-  addComment(data: string, eventId: any, userId: number) {
-    this.httpClient.post('http://localhost:8080/Krowd/comment/add', { 'data':data,'event': eventId, 'Created': null,'user_id': userId })
+  addComment(data: string, event: any, userId: number) {
+    console.log(event);
+    this.httpClient.post('http://localhost:8080/Krowd/comment/add', { 'data':data,'event': event, 'Created': null,'user_id': userId })
       .subscribe((comment) => console.log(comment));
   }
 }

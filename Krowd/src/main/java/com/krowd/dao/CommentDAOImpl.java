@@ -57,6 +57,7 @@ public class CommentDAOImpl implements CommentDAO {
 	 */
 	@Override
 	public void createComment(Comments comments) {
+		System.out.println(comments);
 		try (Session s = sf.getCurrentSession()) {
 			Transaction tx = s.beginTransaction();
 			s.persist(comments);

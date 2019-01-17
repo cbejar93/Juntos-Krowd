@@ -32,19 +32,7 @@ export class EventPageComponent implements OnInit {
     console.log(this.event);
     this.userID= this.authService.getCurrentUser();
     // this.eventID = ;
-
-    this.dataService.getEventbyId(this.event.id)
-      .subscribe(
-        (data) => this.event = {
-          id: data.event_id,
-          photo: data.photo_url,
-          name: data.event_name,
-          description: data.event_description,
-          location: data.event_location,
-          date: data.event_date,
-          user_id: data.user_id
-        }
-      )
+    this.getEvent(this.event.id)
 
       this.dataService.getCommentsByEventId(this.event.id)
         .subscribe(
@@ -61,12 +49,31 @@ export class EventPageComponent implements OnInit {
         return this.commentsList;
   }
 
+  getEvent(eID){
+    this.dataService.getEventbyId(eID)
+      .subscribe(
+        (data) =>{ this.event = {
+          id: data.event_id,
+          photo: data.photo_url,
+          name: data.event_name,
+          description: data.event_description,
+          location: data.event_location,
+          date: data.event_date,
+          user_id: data.user_id
+        }
+          return this.event;
+      }
+      )
+      }
+
   ontoggle() {
     this.toggle = true;
   }
 
   onCommentCreated(form: NgForm) {
     const value = form.value;
+    console.log(this.event);
+    //console.log(this.getEvent(this.event.id));
     this.dataService.addComment(value.data, this.event, this.userID)
   }
 }
