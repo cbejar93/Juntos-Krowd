@@ -11,6 +11,10 @@ import com.krowd.dao.EventDAO;
 import com.krowd.dao.EventDAOImpl;
 import com.krowd.beans.Events;
 
+/*
+ * These are tests to check the methods of the EventDAO. 
+ */
+
 class EventDAOTest {
 
 	private static EventDAO ed;
