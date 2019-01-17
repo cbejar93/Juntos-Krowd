@@ -34,22 +34,24 @@ public class Comments {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Comments(String data, Events event, LocalDate created, int user_id) {
-		super();
-		this.data = data;
-		this.event = event;
-		Created = created;
-		this.user_id = user_id;
-	}
-
-	public Comments(int comment_id, String data, Events event, LocalDate created, int user_id) {
-		super();
-		this.comment_id = comment_id;
-		this.data = data;
-		this.event = event;
-		Created = created;
-		this.user_id = user_id;
-	}
+//	public Comments(String data, Events event, LocalDate created, int user_id) {
+//		super();
+//		this.data = data;
+//		this.event = event;
+//		Created = created;
+//		this.user_id = user_id;
+//	}
+//
+//	public Comments(int comment_id, String data, Events event, LocalDate created, int user_id) {
+//		super();
+//		this.comment_id = comment_id;
+//		this.data = data;
+//		this.event = event;
+//		Created = created;
+//		this.user_id = user_id;
+//	}
+	
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "commentSequence")
@@ -59,11 +61,18 @@ public class Comments {
 	 */
 	@Column(name = "COMMENT_ID")
 	private int comment_id;
+	public Comments(String data, int event_id, LocalDate created, int user_id) {
+	super();
+	this.data = data;
+	this.event_id = event_id;
+	Created = created;
+	this.user_id = user_id;
+}
+
 	@Column(name = "DATA")
 	private String data;
-	@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn(name = "EVENT_ID", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
-	private Events event;
+	@Column(name="Event_Id")
+	private int event_id;
 	@Column(name = "CREATED")
 	private LocalDate Created;
 	@Column(name = "USER_ID")
@@ -88,16 +97,26 @@ public class Comments {
 		this.data = data;
 	}
 
-	public Events getEvent() {
-		return event;
-	}
-
-	public void setEvent(Events event) {
-		this.event = event;
-	}
+//	public Events getEvent() {
+//		return event;
+//	}
+//
+//	public void setEvent(Events event) {
+//		this.event = event;
+//	}
+	
+	
 
 	public LocalDate getCreated() {
 		return Created;
+	}
+
+	public int getEvent_id() {
+		return event_id;
+	}
+
+	public void setEvent_id(int event_id) {
+		this.event_id = event_id;
 	}
 
 	public void setCreated(LocalDate created) {
@@ -112,14 +131,17 @@ public class Comments {
 		this.user_id = user_id;
 	}
 
+	@Override
+	public String toString() {
+		return "Comments [comment_id=" + comment_id + ", data=" + data + ", event_id=" + event_id + ", Created="
+				+ Created + ", user_id=" + user_id + "]";
+	}
+
 	/*
 	 * The toString for the Comments bean.(non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
-	@Override
-	public String toString() {
-		return "Comments [comment_id=" + comment_id + ", data=" + data + ", event=" + event + ", Created=" + Created
-				+ ", user_id=" + user_id + "]";
-	}
+	
 
+	
 }

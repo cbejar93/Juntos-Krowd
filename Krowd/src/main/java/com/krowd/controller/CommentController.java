@@ -105,7 +105,7 @@ public class CommentController {
 	 * not created successfully then the user will get a string stating the usre must try again
 	 * and that it was a bad request.
 	 */
-	@PostMapping(value="/add/(id)")
+	@PostMapping(value="/add/{id}")
   @ResponseBody
 	public ResponseEntity<String> addcomment(@PathVariable int id, @RequestBody Comments comment){
 		ResponseEntity<String> resp = null;
@@ -113,7 +113,7 @@ public class CommentController {
 		try {
 			
 			commentService.createComment(comment);
-			resp = new ResponseEntity<>("comment Created!", HttpStatus.OK);
+			resp = new ResponseEntity<>("", HttpStatus.OK);
 			
 		} catch (Exception e) {
 			System.out.println(e);
