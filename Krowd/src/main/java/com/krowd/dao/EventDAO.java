@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.krowd.beans.Events;
 
+/*
+ * This is an interface for the EventDAO, and these methods will be implemented in the 
+ * EventDAOImpl.
+ */
 public interface EventDAO {
 	
 	public List<Events> getAllEvents();

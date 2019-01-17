@@ -9,6 +9,10 @@ import com.krowd.beans.Users;
 import com.krowd.dao.UserDAO;
 import com.krowd.dao.UserDAOImpl;
 
+/*
+ * These are tests that will be applied to the methods of the UserDAO.  
+ */
+
 class UserDAOTest {
 
 	private static UserDAO ud;

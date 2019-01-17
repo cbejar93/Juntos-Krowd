@@ -15,9 +15,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+/*
+ * This is a bean for the Comments in the Krowd application. The use of the @Table and @Entity annotations
+ * allow the bean to be connected with the COMMENTS table in our database. 
+ */
+
 @Entity
 @Table(name = "COMMENTS")
 public class Comments {
+	
+	/*
+	 * The various constructors for the Comments bean. Some with fields, and one with a call to the
+	 * super class only.
+	 */
 	public Comments() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -44,6 +54,9 @@ public class Comments {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "commentSequence")
 	@SequenceGenerator(allocationSize = 1, name = "commentSequence", sequenceName = "SQ_Comments_PK")
 	
+	/*
+	 * All the fields for the Comments bean.
+	 */
 	@Column(name = "COMMENT_ID")
 	private int comment_id;
 	@Column(name = "DATA")
@@ -56,6 +69,9 @@ public class Comments {
 	@Column(name = "USER_ID")
 	private int user_id;
 
+	/*
+	 * Getters and setter methods for the Comments Bean
+	 */
 	public int getComment_id() {
 		return comment_id;
 	}
@@ -96,6 +112,10 @@ public class Comments {
 		this.user_id = user_id;
 	}
 
+	/*
+	 * The toString for the Comments bean.(non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Comments [comment_id=" + comment_id + ", data=" + data + ", event=" + event + ", Created=" + Created

@@ -49,9 +49,9 @@
 
       <button [hidden]="toggle" (click)="ontoggle()" class="comment-button-center btn btn-outline-success">Post a Comment</button>
       
-      <form [hidden]="!toggle">
+      <form [hidden]="!toggle" (ngSubmit)="onCommentCreated(commentForm)" #commentForm="ngForm">
         <div class="row comment-button">
-        <input type="text" class="col-9"> 
+        <input type="text" name="data" class="col-9" [(ngModel)] = "data"> 
         &nbsp;
         <input type="submit" class="btn btn-outline-success col-2" value="Submit">
       </div>

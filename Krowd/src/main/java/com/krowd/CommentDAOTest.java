@@ -11,6 +11,10 @@ import com.krowd.beans.Comments;
 import com.krowd.dao.CommentDAO;
 import com.krowd.dao.CommentDAOImpl;
 
+/*
+ * These are tests that are to test out the methods of the CommentDAO.
+ */
+
 class CommentDAOTest {
 
 	private static CommentDAO cd;

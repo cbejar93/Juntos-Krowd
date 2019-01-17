@@ -10,10 +10,16 @@ import javax.persistence.JoinTable;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+/*
+ * The bean for the Users. The annotations reference the USERS table in the database.
+ */
 @Entity
 @Table(name = "USERS")
 public class Users {
 
+	/*
+	 * The constructors for the Users bean. Some with fields, and one with a call to the Super class.
+	 */
 	public Users(String firstname, String lastname, String username, String email, int token_score, String password,
 			String photo_url, String fID) {
 		super();
@@ -55,6 +61,10 @@ public class Users {
 		// TODO Auto-generated constructor stub
 	}
 
+	/*
+	 * The toString that will print containing the fields.(non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Users [userid=" + userid + ", firstname=" + firstname + ", lastname=" + lastname + ", username="
@@ -77,6 +87,9 @@ public class Users {
 		this.photo_url = photo_url;
 	}
 
+	/*
+	 * The fields for the Users bean.
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userSequence")
 	@SequenceGenerator(allocationSize = 1, name = "userSequence", sequenceName = "SQ_Users_PK")
@@ -108,6 +121,9 @@ public class Users {
 	@Column(name = "fID")
 	private String fID;
 
+	/*
+	 * The getters and setters for the Users bean.
+	 */
 	public String getPhoto_url() {
 		return photo_url;
 	}

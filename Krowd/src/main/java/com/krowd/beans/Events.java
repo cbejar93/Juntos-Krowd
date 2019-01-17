@@ -14,10 +14,17 @@ import javax.persistence.JoinTable;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+/*
+ * The bean for the Events in the application. The annotations reference our EVENTS table in
+ * the database.
+ */
 @Entity
 @Table(name = "EVENTS")
 public class Events {
 
+	/*
+	 * The constructors for Events bean. One with call to super class, and the others with fields.
+	 */
 	public Events() {
 		super();
 	}
@@ -59,7 +66,9 @@ public class Events {
 		this.user_id = user_id;
 	}
 
-
+	/*
+	 * The fields for the Events bean.
+	 */
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "eventSequence")
@@ -86,6 +95,9 @@ public class Events {
 	@Column(name = "EVENTS_MAXGUESTS")
 	private int eventGuests;
 
+	/*
+	 * The getters and setters for the fields.
+	 */
 	public int getEvent_id() {
 		return event_id;
 	}
@@ -150,6 +162,10 @@ public class Events {
 		this.created = created;
 	}
 
+	/*
+	 * The toString that will print that contains the fields.(non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Events [event_id=" + event_id + ", event_name=" + event_name + ", event_location=" + event_location
