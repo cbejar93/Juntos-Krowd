@@ -3,6 +3,7 @@ package com.krowd.main;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
+import com.krowd.beans.Events;
 import com.krowd.dao.EventDAO;
 import com.krowd.dao.EventDAOImpl;
 import com.krowd.dao.UserDAO;
@@ -18,11 +19,17 @@ public class Driver {
 		SessionFactory sf = HibernateUtil.getSessionFactory();
 		testingUsers(sf); // pretty self explanatory
 	}
+
 	static void testingUsers(SessionFactory sf) {
 		UserDAO ud = new UserDAOImpl();
 		EventDAO ed = new EventDAOImpl();
 		Session s = sf.getCurrentSession();
-		System.out.println(ud.getUserByFID("K11e4YGYFdPgyThAQg0rz8R3WYR2"));
+		
+		Events evn = new Events("Welcome to The Jungle",
+				"This is Purely a test of the Event Creation System, Thanks for looking Though", 900);
+		ed.createEvent(evn);
+		
+		System.out.println(evn);
 		s.close();
 	}
 
