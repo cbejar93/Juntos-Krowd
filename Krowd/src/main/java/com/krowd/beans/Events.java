@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -63,6 +64,7 @@ public class Events {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "eventSequence")
 	@SequenceGenerator(allocationSize = 1, name = "eventSequence", sequenceName = "SQ_Events_PK")
+	@JoinTable
 	@Column(name = "EVENT_ID")
 	private int event_id;
 	@Column(name = "EVENT_NAME")

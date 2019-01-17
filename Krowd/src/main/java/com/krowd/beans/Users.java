@@ -80,13 +80,7 @@ public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userSequence")
 	@SequenceGenerator(allocationSize = 1, name = "userSequence", sequenceName = "SQ_Users_PK")
-//	@JoinTable(
-//			name="USER_FRIENDS",
-//			joinColumns=
-//			@JoinColumn(name="USER_ID", referencedColumnName="USER_ID"),
-//			inverseJoinColumns=
-//			@JoinColumn(name="USER_ID", referencedColumnName="USER_ID")
-//				)
+	@JoinTable
 	@Column(name = "USER_ID")
 	private int userid;
 

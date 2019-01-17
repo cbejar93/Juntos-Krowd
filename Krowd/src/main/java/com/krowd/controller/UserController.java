@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -65,8 +66,9 @@ public class UserController {
 		ResponseEntity<String> resp = null;
 		try {
 			userService.addUser(user);
-			resp = new ResponseEntity<>("", HttpStatus.OK);
 			System.out.println(user);
+			resp = new ResponseEntity<>("User Created!", HttpStatus.OK);
+			
 			
 		} catch (Exception e) {
 			resp = new ResponseEntity<>("No User Created, Try Again", HttpStatus.BAD_REQUEST);
@@ -74,12 +76,22 @@ public class UserController {
 		return resp;
 	}
 	
-	@PostMapping(value="/update")
+	@PutMapping(value="/update/{id}")
 	@ResponseBody
-	public ResponseEntity<String> updateUser(@RequestBody Users user){
+	public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody Users user){
 		ResponseEntity<String> resp = null;
 		try {
-			userService.updateUsers(user);
+			
+			Users u = userService.getUserById(id);
+			System.out.println("pre-switch " + u);
+			u.setFirstname(user.getFirstname());
+			u.setLastname(user.getLastname());
+			u.setPhoto_url(user.getPhoto_url());
+			
+			userService.updateUsers(u);
+			
+			System.out.println(u);
+			
 			resp = new ResponseEntity<>("User Updated!", HttpStatus.OK);
 		} catch (Exception e) {
 			resp = new ResponseEntity<>("User Not Updated, Try Again", HttpStatus.BAD_REQUEST);

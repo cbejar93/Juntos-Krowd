@@ -7,9 +7,12 @@ import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -38,6 +41,9 @@ public class Comments {
 	}
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "commentSequence")
+	@SequenceGenerator(allocationSize = 1, name = "commentSequence", sequenceName = "SQ_Comments_PK")
+	
 	@Column(name = "COMMENT_ID")
 	private int comment_id;
 	@Column(name = "DATA")
