@@ -10,7 +10,7 @@ import { AuthService } from '../landing/auth/auth.service';
 })
 export class ProfileComponent implements OnInit {
   user : {id: string, photo: string, firstname: string, lastname: string, tokenscore: number}
-  userID: string;
+  userID: number;
 
   constructor(private router: Router, private dataService: DataServiceService, private authService: AuthService) { }
 
@@ -18,11 +18,11 @@ export class ProfileComponent implements OnInit {
     
     this.userID =this.authService.getCurrentUser();
     console.log(`from profile comp ${this.userID}`)
-    this.getUserInfo();
+    this.getUserInfo(this.userID);
   }
 
-  getUserInfo() {
-    this.dataService.getUserById(this.userID).subscribe(data=>
+  getUserInfo(uID) {
+    this.dataService.getUserById(uID).subscribe(data=>
       {
 
       // this.user = {

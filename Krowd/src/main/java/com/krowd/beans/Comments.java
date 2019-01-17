@@ -2,6 +2,7 @@ package com.krowd.beans;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
@@ -53,7 +54,6 @@ public class Comments {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "commentSequence")
 	@SequenceGenerator(allocationSize = 1, name = "commentSequence", sequenceName = "SQ_Comments_PK")
-	
 	/*
 	 * All the fields for the Comments bean.
 	 */
@@ -61,7 +61,7 @@ public class Comments {
 	private int comment_id;
 	@Column(name = "DATA")
 	private String data;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name = "EVENT_ID", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
 	private Events event;
 	@Column(name = "CREATED")

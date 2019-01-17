@@ -7,10 +7,10 @@
         <div class="card-body">
           <h5 class="card-title">Come join the Krowd</h5>
           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <div style="text-align:center">
-            <a routerLink='signup' class="btn btn-success event-button">Sign Up!</a>
+          <div style="text-align:center" [hidden]="toggled">
+            <a routerLink='signup' (click) ="toggle()"class="btn btn-success event-button">Sign Up!</a>
             &nbsp; &nbsp;
-            <a routerLink='signin' class="btn btn-success event-button">Sign In!</a>
+            <a routerLink='signin' (click) ="toggle()"class="btn btn-success event-button">Sign In!</a>
           </div>
           <router-outlet></router-outlet>
 

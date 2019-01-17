@@ -20,6 +20,7 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public void createComment(Comments comment) {
+		System.out.println(comment);
 		ud.createComment(comment);
 	}
 

@@ -1,12 +1,23 @@
 <form (ngSubmit)="onSignUp(f)" #f="ngForm">
   <div class="form-group">
-    <label for="email">email</label>
-    <input type="text" id="email" name="email" ngModel class="form-control">
-    <label for="username">username</label>
-    <input type="text" id="username" name="username" ngModel class="form-control">
-    <label for="password">password</label>
-    <input type="password" id="password" name="password" ngModel class="form-control">
-
+    <div class="row">
+      <div class="col">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firsName" ngModel class="form-control">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" ngModel class="form-control">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" ngModel class="form-control">
+        </div>
+        <div class="col">
+          <label for="email">E-mail</label>
+          <input type="text" id="email" name="email" ngModel class="form-control">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" ngModel class="form-control">
+          <label for="retypepassword">Re-type Password</label>
+          <input type="password" id="retypepassword" name="retypepassword" ngModel class="form-control">
+        </div>
+    </div>
   </div>
   <button class="btn btn-primary" type="submit">Sign Up</button>
 </form>

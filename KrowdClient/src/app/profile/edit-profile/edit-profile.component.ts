@@ -12,16 +12,18 @@ import { AuthService } from 'src/app/landing/auth/auth.service';
 })
 export class EditProfileComponent implements OnInit {
 
-  userId: string;
+  userId: number;
   constructor(http: HttpClient, private dataService: DataServiceService, private authService: AuthService) { }
   
   ngOnInit() {
+    this.userId = this.authService.getCurrentUser();
   }
 
   
-  submitChanges(form: NgForm) {
-    this.userId = this.authService.getCurrentUser();
-    this.dataService.editUserInfo(this.userId);
+  submitChanges(form: NgForm) { 
+    this.dataService.getUserById(this.userId)
+      .subscribe((user) => {console.log(user)})
+    // this.dataService.editUserInfo(this.userId);
   }
 
   //code for image upload
