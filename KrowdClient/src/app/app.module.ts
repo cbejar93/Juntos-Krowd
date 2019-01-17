@@ -32,8 +32,8 @@ import { EventPageComponent } from './event-page/event-page.component';
 // , canActivate: [AuthGuardService]
 
 const appRoutes: Routes = [
-  { path:'home', component: HomeComponent },
-  { path:'profile', component: ProfileComponent, 
+  { path:'home', component: HomeComponent  , canActivate: [AuthGuardService] },
+  { path:'profile', component: ProfileComponent, canActivate: [AuthGuardService],
   
     children:[
     {path: 'comments', component: UserCommentsComponent},
@@ -41,7 +41,7 @@ const appRoutes: Routes = [
     {path: 'edit', component: EditProfileComponent}
   ]
   },
-  {path: 'create', component: EventCreatorComponent},
+  {path: 'create', component: EventCreatorComponent  , canActivate: [AuthGuardService]},
   {path: 'landing', component: LandingComponent
   ,
   children:[
@@ -50,8 +50,9 @@ const appRoutes: Routes = [
   ]
   
   },
-  {path:'events/:id', component: EventPageComponent},
+  {path:'events/:id', component: EventPageComponent, canActivate: [AuthGuardService]},
   {path: 'not-found', component: PageNotFoundComponent},
+  {path: '', redirectTo: 'landing', pathMatch: 'full'},
   {path: '**', redirectTo: '/not-found'}
 
 ]
