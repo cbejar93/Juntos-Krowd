@@ -41,6 +41,10 @@ export class AuthService {
 
   }
 
+  getUserbyFID(){
+    
+  }
+
   signInUserFirebase(email: string, password:string, username: string ){
     firebase.auth().signInWithEmailAndPassword(email,password)
       .then(
