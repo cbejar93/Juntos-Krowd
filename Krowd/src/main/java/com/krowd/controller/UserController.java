@@ -46,6 +46,19 @@ public class UserController {
 		
 	}
 	
+	@GetMapping(value="/fid/{fId}")
+	@ResponseBody
+	public ResponseEntity<List<Users>> getUserByFID(@PathVariable String fId){
+		List<Users> u = userService.getUserByFID(fId);
+		if (u == null) {
+			return new ResponseEntity<>(null, HttpStatus.I_AM_A_TEAPOT);
+		} else {
+			return new ResponseEntity<>(u, HttpStatus.OK);
+		}
+		
+	}
+	
+	
 	@PostMapping(value="/add")
 	@ResponseBody
 	public ResponseEntity<String> addUser(@RequestBody Users user){

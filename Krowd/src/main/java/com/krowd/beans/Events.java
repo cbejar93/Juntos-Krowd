@@ -6,8 +6,11 @@ import javax.persistence.Column;
 import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -48,6 +51,8 @@ public class Events {
 	}
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "eventSequence")
+	@SequenceGenerator(allocationSize = 1, name = "eventSequence", sequenceName = "SQ_Events_PK")
 	@Column(name = "EVENT_ID")
 	private int event_id;
 	@Column(name = "EVENT_NAME")
