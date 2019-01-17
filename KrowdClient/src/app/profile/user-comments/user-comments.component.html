@@ -11,7 +11,7 @@
                 <!-- creates a new row for each user comment, 
                 using the name of the event, the comment, and the event date-->
                 <tr *ngFor="let comment of commentsList" id="commentsList">
-                    <td> {{comment.event.event_name}} </td>
+                    <a routerLink="/events/{{eventID}}"><td> {{comment.event_id}} </td></a>
                     <td> {{comment.data}} </td>
                     <td> {{comment.created | date }} </td>
                 </tr>
@@ -25,3 +25,5 @@
         </table>
     </div>
 </div>
+
+<!-- <a routerLink="/events/{{event.event_id}}" class="btn btn-success button-center">Register</a> -->

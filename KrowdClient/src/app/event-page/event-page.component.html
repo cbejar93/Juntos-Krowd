@@ -15,9 +15,9 @@
       &nbsp; &nbsp;
     <div class="boxspace" id="userdiv">
         <h2 class="centerize">Attendees</h2>
-        <div [hidden] = "!commentsList.length == 0">
+        <div [hidden] = "!attendingList.length == 0">
             <br>
-            <p class="centerize">No attendees yet.  Why not be the first to attend?</p>
+            <p class="centerize">No attendees yet.  Click "Register" below to sign up!</p>
             <br>
         </div>
         <br>
@@ -32,12 +32,12 @@
       <!-- comment outline-->
       <div *ngFor="let comment of commentsList" class="row commentdiv col-12">
         <div id="UserInfo" class="col-2">
-           <!--<img src={{user.photo}} class="commentpic centerize">  -->
+           <img src={{comment.picture}} class="commentpic centerize"> 
         </div>
         <div id="comment-body" class="col-10">
-          <em>"{{comment.data}}"</em>
+          <em>"{{comment.comment.data}}"</em>
           <span id="comment-metadata">
-            <p>User: {{comment.user_id}} &nbsp; &nbsp; {{comment.created | date}}</p>
+            <p>User: {{comment.username}} &nbsp; &nbsp; {{comment.created | date}}</p>
           </span>
         </div>
       </div>
@@ -53,7 +53,7 @@
         <div class="row comment-button">
         <input type="text" name="data" class="col-9" [(ngModel)] = "data"> 
         &nbsp;
-        <input type="submit" class="btn btn-outline-success col-2" value="Submit">
+        <input type="submit" class="btn btn-outline-success col-2" value="Submit" click="ontoggle()">
       </div>
       </form>
 

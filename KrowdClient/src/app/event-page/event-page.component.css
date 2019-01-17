@@ -49,9 +49,6 @@
     width: 90%;
     margin: auto;
     margin-bottom: 5%;
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
 }
 
 #eventdiv {
@@ -78,7 +75,8 @@
 }
 
 .comment-button-center {
-    width: 100%;
+    width: 20%;
+    margin-left: 40%;
 }
 
 .row {
@@ -100,12 +98,9 @@
 }
 
 .commentpic {
-    width: 190px;
-    height: 190px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
     margin: auto;
     padding-right: 14px;
 }
@@ -117,10 +112,13 @@
 #comment-metadata {
     font-size: 10px;
     color: rgb(145, 137, 137);
-    text-align: center;
     margin: auto;
 }
 
 .comment-button {
     margin-bottom: 20px;
+}
+
+em {
+    font-size: 20px;
 }

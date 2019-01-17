@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../../data-service.service'
+import { AuthService } from '../../landing/auth/auth.service';
 
 @Component({
   selector: 'app-user-events',
@@ -8,16 +9,20 @@ import { DataServiceService } from '../../data-service.service'
 })
 export class UserEventsComponent implements OnInit {
 
-  constructor(private dataService: DataServiceService) { }
+  userId: number;
+
+  constructor(private dataService: DataServiceService, private authService: AuthService) { }
 
   ngOnInit() {
     this.getEventsByUserId();
+    console.log(this.eventList);
   }
 
   eventList = [];
   getEventsByUserId() {
-    var userId = 16;
-    this.dataService.getEventsByUserId(userId)
+    this.userId =this.authService.getCurrentUser();
+    console.log(this.userId);
+    this.dataService.getEventsByUserId(this.userId)
       .subscribe(
         (events)=> {
           for (let event of events) {

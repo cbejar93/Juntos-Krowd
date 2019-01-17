@@ -4,6 +4,7 @@ import { Event } from '../home/event.model';
 import { HttpClient } from '@angular/common/http';
 import { CloudinaryOptions, CloudinaryUploader } from 'ng2-cloudinary';
 import { DataServiceService } from '../data-service.service';
+import { AuthService } from '../landing/auth/auth.service'
 
 @Component({
   selector: 'app-event-creator',
@@ -17,7 +18,7 @@ export class EventCreatorComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor(http: HttpClient, private dataService: DataServiceService) { }
+  constructor(http: HttpClient, private dataService: DataServiceService, private authService: AuthService) { }
   onEventCreated(form: NgForm) {
     //code for adding the new event to the database
     console.log('Event Successfully Created');
@@ -25,21 +26,12 @@ export class EventCreatorComponent implements OnInit {
     const value = form.value;
     console.log(form.value)
 
-    //for date 
-    var dateObj = new Date();
-    // var month = dateObj.getUTCMonth() + 1; //months from 1-12
-    // var day = dateObj.getUTCDate();
-    // var year = dateObj.getUTCFullYear();
-
-    // let eventDateCreated = day + "/" + month + "/" + year;
-    // console.log(eventDateCreated);
-
-    // var eventDateString: String = value.eventDate.stringify();
+    const userId = this.authService.getCurrentUser();
 
     const newEvent = new Event(null, value.eventName,
       value.eventLocation, value.eventDescription,
       value.eventCategory, null,
-      null, this.imageURL,
+      userId, this.imageURL,
       null, value.eventPeople);
 
     console.log(newEvent);

@@ -1,8 +1,5 @@
 <div class="box-shadow">
     <div id="events" class="row">
-        <!-- <div class="eventFromList card" *ngFor="let event of events">
-          {{event.name}}
-        </div> -->
         <div *ngFor="let event of eventList" class="card col-sm3">
           <img class="card-img-top" src={{event.photo_url}} alt="Image">
           <div class="card-body">
@@ -12,7 +9,7 @@
             <p class="card-text">Date: {{event.event_date | date }} </p>
           </div>
     </div>
-    <div id="default" [hidden] = "eventList">
+    <div id="default" [hidden] = "!eventList.length == 0">
       No events yet! Click the "Create" tab above to create a new event.
     </div>
 </div>
