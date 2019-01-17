@@ -24,7 +24,7 @@ class CommentDAOTest {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		cd = new CommentDAOImpl();
-		c = new Comments(1001, "Here is a test comment", null, null, 632);
+		c = new Comments();
 	}
 	
 	@AfterEach void setUpAfterClass() throws Exception{
@@ -42,7 +42,7 @@ class CommentDAOTest {
 	@Test
 	void testUpdateComment() {
 		cd.createComment(c);
-		nc = new Comments(1001, "Updated", null, null, 632);
+		nc = new Comments();
 		cd.updateComment(nc);
 		assertEquals("Updated", cd.getCommentById(1001).getData());
 		
