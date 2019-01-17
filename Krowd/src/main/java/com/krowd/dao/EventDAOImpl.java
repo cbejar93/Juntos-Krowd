@@ -24,6 +24,9 @@ public class EventDAOImpl implements EventDAO {
 			evn = (Events) s.get(Events.class, event_Id);
 			tx.commit();
 		}
+		catch (NullPointerException e){
+			evn = null;
+		}
 		return evn;
 		
 	}

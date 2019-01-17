@@ -17,10 +17,10 @@ public class CommentDAOImpl implements CommentDAO {
 	
 
 	@Override
-	public void deleteComment(int comment_Id) {
+	public void deleteComment(Comments comments) {
 		try (Session s = sf.getCurrentSession()) {
 			Transaction tx = s.beginTransaction();
-			s.delete(comment_Id);
+			s.delete(comments);
 			tx.commit();
 			s.close();
 		}

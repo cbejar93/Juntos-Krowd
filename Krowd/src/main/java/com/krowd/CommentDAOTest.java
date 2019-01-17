@@ -2,34 +2,52 @@ package com.krowd;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import com.krowd.beans.Comments;
 import com.krowd.dao.CommentDAO;
 import com.krowd.dao.CommentDAOImpl;
 
 class CommentDAOTest {
 
 	private static CommentDAO cd;
+	private static Comments c;
+	private static Comments nc;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		cd = new CommentDAOImpl();
+		c = new Comments(1001, "Here is a test comment", null, null, 632);
+	}
+	
+	@AfterEach void setUpAfterClass() throws Exception{
+		if (cd.getCommentById(1001) != null) {
+			cd.deleteComment(c);
+		}
 	}
 
 	@Test
 	void testDeleteComment() {
-		fail("Not yet implemented");
+		cd.deleteComment(c);
+		assertNull(cd.getCommentById(1001));
 	}
 
 	@Test
 	void testUpdateComment() {
-		fail("Not yet implemented");
+		cd.createComment(c);
+		nc = new Comments(1001, "Updated", null, null, 632);
+		cd.updateComment(nc);
+		assertEquals("Updated", cd.getCommentById(1001).getData());
+		
 	}
 
 	@Test
 	void testCreateComment() {
-		fail("Not yet implemented");
+		cd.createComment(c);
+		assertEquals("Here is a test comment", cd.getCommentById(1001).getData());
 	}
 
 	@Test
@@ -39,17 +57,17 @@ class CommentDAOTest {
 
 	@Test
 	void testGetAllComments() {
-		fail("Not yet implemented");
+		assertNotNull(cd.getAllComments());
 	}
 
 	@Test
 	void testGetCommentsByUserId() {
-		fail("Not yet implemented");
+		assertEquals("Best Event Ever", cd.getCommentsByUserId(16).get(1).getData());
 	}
 
 	@Test
 	void testGetCommentsByEventId() {
-		fail("Not yet implemented");
+		assertNotNull(cd.getCommentsByEventId(1));
 	}
 
 }
