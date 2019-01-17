@@ -69,6 +69,10 @@ export class DataServiceService {
       )
   }
 
+  getUserById(userID: string){
+    return this.httpClient.get(`http://localhost:8080/Krowd/user/${userID}`)
+  }
+
   getCommentsByUserId(userId: number) {
     return this.httpClient.get<Comment[]>(`http://localhost:8080/Krowd/comment/user/${userId}`)
       .map((comments) => {
@@ -82,8 +86,8 @@ export class DataServiceService {
 
   //everything below here needs to be modified
 
-  editUserInfo(userId: number) {
-    return this.httpClient.put("http://localhost:8080/Krowd/user/all", userId)
+  editUserInfo(user: string) {
+    return this.httpClient.put("http://localhost:8080/Krowd/user/update", user)
   }
 
   getEventsByUserId(userId: number) {

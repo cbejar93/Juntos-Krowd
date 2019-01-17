@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CloudinaryOptions, CloudinaryUploader } from 'ng2-cloudinary';
 import { DataServiceService } from '../../data-service.service'
+import { AuthService } from 'src/app/landing/auth/auth.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -10,15 +11,17 @@ import { DataServiceService } from '../../data-service.service'
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {
-  constructor(http: HttpClient, private dataService: DataServiceService) { }
+
+  userId: string;
+  constructor(http: HttpClient, private dataService: DataServiceService, private authService: AuthService) { }
   
   ngOnInit() {
   }
 
   
   submitChanges(form: NgForm) {
-    var userId = 2;
-    this.dataService.editUserInfo(userId);
+    this.userId = this.authService.getCurrentUser();
+    this.dataService.editUserInfo(this.userId);
   }
 
   //code for image upload

@@ -19,7 +19,9 @@ export class AuthService {
   currentUser:{
     ctk: string,
     cUserID: number
-  }
+  } = null;
+
+  userID:string;
 
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -29,11 +31,14 @@ export class AuthService {
 
   signUpUserFireBase(email: string, password: string, username: string) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(res => {this.router.navigate(['/landing/signin']);
+        .then(res => {
+          console.log("hello from firebase sign in ");
         console.log(res.user.uid);
         let firedID: string = res.user.uid;
+        
         this.signUpUser(username, email, password, firedID);
-        this.getUserbyFID(firedID);
+        this.router.navigate(['/landing/signin']);
+        
   })
         .catch(error => console.log(error));
   }
@@ -45,13 +50,8 @@ export class AuthService {
   }
 
   getUserbyFID(fid: string){
-    this.http.get(`http://localhost:8080/Krowd/user/fid/${fid}`)
-    .map((event) => { console.log(event); }
-
-    )
-    .pipe(catchError(error => {
-      return throwError(error);
-    }))
+    console.log("running getUserbyFID")
+    return this.http.get(`http://localhost:8080/Krowd/user/fid/${fid}`)
   }
 
   signInUserFirebase(email: string, password:string, username: string ){
@@ -61,6 +61,16 @@ export class AuthService {
           console.log(response);
           let fID: string= response.user.uid;
           this.signInUser(username, password, email, fID);
+          this.getUserbyFID(fID)
+          .subscribe(data=>
+            {
+              console.log("hello from after fbaseiduser");
+              console.log(data);
+              console.log(data[0].userid);
+              this.userID = data[0].userid;
+              console.log(this.userID);
+        
+            })
           firebase.auth().currentUser.getIdToken().then(
              (token:string)=>
               this.tk= token
@@ -87,7 +97,7 @@ export class AuthService {
   }
 
   getCurrentUser(){
-    return this.currentUser;
+    return this.userID;
   }
 
   isAuthenticated() {

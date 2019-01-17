@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataServiceService } from '../data-service.service'
+import { AuthService } from '../landing/auth/auth.service';
 
 @Component({
   selector: 'app-event-page',
@@ -10,8 +11,8 @@ import { DataServiceService } from '../data-service.service'
 export class EventPageComponent implements OnInit {
   event : {id: number, photo: string, name: string, description: string, location:string, date: any, user_id:number}
   
-  constructor(private route: ActivatedRoute, private dataService: DataServiceService) { }
-
+  constructor(private route: ActivatedRoute, private dataService: DataServiceService, private authService: AuthService) { }
+  userID: string;
   toggle: boolean = false;
 
   commentsList = [];
@@ -26,6 +27,7 @@ export class EventPageComponent implements OnInit {
       user_id: this.route.snapshot.params['user_id']
     }
     console.log(this.event);
+    this.userID= this.authService.getCurrentUser();
     // this.eventID = ;
 
     this.dataService.getEventbyId(this.event.id)
